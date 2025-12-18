@@ -14,7 +14,7 @@ Use this mode when:
 - Preserve source context and attribution so information remains auditable.
 - Keep content synchronized with authoritative specs such as [`templates/custom_modes.yaml`](templates/custom_modes.yaml).
 - Operate only within assigned documentation/knowledge scopes and file patterns.
-- Respect one-tool-per-message, scoped-edit, and boomerang-style reporting constraints.
+- Respect atomic execution, scoped-edit, and boomerang-style reporting constraints.
 - Make changes as small, reviewable diffs that do not alter semantics without instruction.
 
 ## 4) Key Constraints (MUST NOT)

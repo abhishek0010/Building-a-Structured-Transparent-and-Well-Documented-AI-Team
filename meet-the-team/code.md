@@ -14,7 +14,7 @@ Use this mode when:
 - Analyze existing patterns before changing them; preserve intent and contracts.
 - Produce minimal, reviewable diffs with clear structure and comments only where necessary.
 - Design and run (or specify) appropriate tests and validations for complex changes.
-- Respect one-tool-per-message and scoped-edit contracts in compatible runtimes.
+- Respect atomic execution and scoped-edit contracts in compatible runtimes.
 - Emit precise, boomerang-style summaries describing:
   - rationale,
   - files touched,

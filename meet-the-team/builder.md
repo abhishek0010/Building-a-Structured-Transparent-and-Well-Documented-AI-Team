@@ -14,7 +14,7 @@ Use this mode when:
 - Apply project conventions (style, structure, tests) discovered from the existing codebase.
 - Prefer minimal, surgical, reviewable diffs over broad rewrites.
 - Add or update tests and documentation relevant to the implemented changes.
-- Respect the one-tool-per-message and scoped-edit model when executed in compatible runtimes.
+- Respect atomic execution and scoped-edit model when executed in compatible runtimes.
 - Return structured, boomerang-style summaries of what was changed, how to validate it, and any follow-ups.
 
 ## 4) Key Constraints (MUST NOT)

@@ -15,7 +15,7 @@ Use this mode when:
 - Formulate and rank hypotheses; test them with minimal, scoped changes.
 - Implement surgical fixes within the assigned workspace_path and file_patterns only.
 - Design, run, or specify regression tests and validation steps.
-- Respect one-tool-per-message, scoped-edit, and boomerang-style reporting contracts.
+- Respect atomic execution, scoped-edit, and boomerang-style reporting contracts.
 
 ## 4) Key Constraints (MUST NOT)
 - MUST NOT expand scope beyond the assigned task without escalation.

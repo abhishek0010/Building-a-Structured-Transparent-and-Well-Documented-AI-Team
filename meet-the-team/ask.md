@@ -14,7 +14,7 @@ Use this mode when:
 - Prefer authoritative, diverse sources; summarize and attribute clearly.
 - Highlight uncertainty and gaps instead of fabricating details.
 - Keep outputs structured and easy for other modes to consume (bullets, sections).
-- Respect global contracts: one-tool-per-message, scoped operations, boomerang-style completion payloads.
+- Respect global contracts: atomic execution, scoped operations, boomerang-style completion payloads.
 
 ## 4) Key Constraints (MUST NOT)
 - MUST NOT assume or enforce a specific runtime, model, or vendor.

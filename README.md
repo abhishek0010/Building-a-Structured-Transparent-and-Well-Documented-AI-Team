@@ -1,6 +1,6 @@
 # Advanced Multi-Agent AI Framework
 
-A structured, production-ready multi-agent framework for coordinating specialized AI modes using clear contracts, one-tool-per-message execution, and traceable task flows.
+A structured, production-ready multi-agent framework for coordinating specialized AI modes using clear contracts, deterministic execution, and traceable task flows.
 
 - Supports multi-mode agent teams (Orchestrator, Architect, Planner, Code, Debug, etc.)
 - Enforces scoped edits, deterministic workflows, and boomerang-style task returns
@@ -15,7 +15,7 @@ A structured, production-ready multi-agent framework for coordinating specialize
 
 ### Key Benefits
 
-- **Structured multi-agent coordination** using clear Orchestrator / Worker / Reviewer roles
+- **Structured multi-agent coordination** using Orchestrator / TDD phases (red/green/blue)
 - **Boomerang-style task returns** for traceable, auditable workflows
 - **Token-aware, minimal-diff editing** patterns for safe automated changes
 - **Production-oriented architecture** with explicit scopes, contracts, and documentation
@@ -54,7 +54,7 @@ cd Advanced-Multi-Agent-AI-Framework
 
 ### 3. Configure your assistant / runtime
 
-Use the sections below ("How to use this as a GitHub Template" and "Compatibility / Requirements") to wire these files into your environment and start orchestrating work via the Orchestrator/Worker/Reviewer pattern.
+Use the sections below ("How to use this as a GitHub Template" and "Compatibility / Requirements") to wire these files into your environment and start orchestrating work via the Orchestrator/TDD pattern.
 
 ## 📦 How to use this as a GitHub Template
 
@@ -75,8 +75,8 @@ Use this repository as a starting point for your own multi-agent setup:
    - Optionally register slash-commands based on [`slash-commands/`](slash-commands/) to standardize workflows.
 5. Start runs with an Orchestrator-style mode that:
    - Decomposes work into subtasks,
-   - Assigns Workers with scoped file patterns,
-   - Routes results through a Reviewer when needed.
+   - Delegates to TDD phases (red → green → blue) with scoped file patterns,
+   - Validates results through structured boomerang returns.
 
 This keeps the framework portable while preserving the core coordination patterns.
 
@@ -103,15 +103,16 @@ Examples:
 | Mode | Specialization | Advanced Techniques |
 |------|----------------|-------------------|
 | **🔄 Orchestrator** | Project Management & Task Delegation | `workflow-template-prompting`, `boomerang-task-delegation` |
-| **🏗️ Architect** | System Design & Architecture | `visual-documentation-generation`, `tree-of-thoughts` |
-| **📅 Planner** | Product Planning & Requirements | `user-story-prompting`, `stakeholder-perspective-analysis` |
+| **🏛️ Architect** | System Design & Architecture | `visual-documentation-generation`, `tree-of-thoughts` |
+| **📋 Planner** | Product Planning & Requirements | `user-story-prompting`, `stakeholder-perspective-analysis` |
 
-### Implementation Team
+### TDD Team
 | Mode | Specialization | Advanced Techniques |
 |------|----------------|-------------------|
-| **⚒️ Builder** | Software Development & Testing | `code-generation-agents`, `test-based-iterative-flow` |
-| **💻 Code** | Advanced Coding & Optimization | 'modular-code-generation`, `(https://github.com/chonghin33/lcm-1.13-whitepaper)' 'language-construct-modeling` |
-| **🔒 Guardian** | Infrastructure & CI/CD | `automated-development-workflows`, `semantic-guardrails` |
+| **🔴 Red Phase** | Test-First Development | `test-driven-design`, `behavior-specification` |
+| **🟢 Green Phase** | Minimal Implementation | `incremental-implementation`, `test-passing-focus` |
+| **🔵 Blue Phase** | Refactoring & Polish | `code-quality-improvement`, `dry-solid-principles` |
+| **💻 Code** | Advanced Coding & Optimization | `modular-code-generation`, `language-construct-modeling` |
 
 ### Research & Analysis Team
 | Mode | Specialization | Advanced Techniques |
@@ -141,7 +142,7 @@ Examples:
 ### **Internal Tooling & Ops**
 - CI/CD-aligned agent workflows
 - Documentation and knowledge base automation
-- Safe infrastructure and config updates via scoped Workers
+- Safe infrastructure and config updates via TDD phases
 
 ## 🔄 The SPARC + Boomerang Methodology
 
@@ -152,8 +153,8 @@ Examples:
 
 1. **Task Creation** - Orchestrator generates structured tasks from project requirements
 2. **Specialist Assignment** - Tasks delegated to the most appropriate mode/agent
-3. **Scoped Execution** - Workers operate only within assigned workspace paths and file patterns
-4. **Quality Integration** - Results are validated (optionally via Reviewer) and merged back
+3. **TDD Execution** - Red → Green → Blue phases operate within assigned workspace paths and file patterns
+4. **Quality Integration** - Results are validated through structured boomerang returns and merged back
 5. **Iterative Improvement** - Feedback loops refine instructions, scopes, and contracts
 
 ## 📊 Performance & Optimization Features
@@ -255,6 +256,6 @@ This repository provides a template-friendly, platform-agnostic entrypoint for:
 - Running deterministic, auditable, one-tool-per-message workflows
 - Using reusable templates for modes, shared instructions, and slash-commands
 
-Start from this template, connect it to your preferred agent runtime, and coordinate complex work through the Orchestrator/Worker/Reviewer pattern with scoped, reviewable changes.
+Start from this template, connect it to your preferred agent runtime, and coordinate complex work through the Orchestrator/TDD pattern with scoped, reviewable changes.
 
 [`README.md`](README.md)

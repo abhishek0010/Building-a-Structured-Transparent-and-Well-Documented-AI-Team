@@ -5,8 +5,8 @@ These are the system-wide instructions for the Advanced Multi-Agent AI Framework
 They replace technique-heavy prose with enforceable behaviors aligned to:
 
 - Responses-style runs and steps.
-- Roo-style one-tool-per-message XML calls.
-- Orchestrator / Worker / Reviewer role contracts.
+- Deterministic, atomic tool execution.
+- Orchestrator / TDD phase role contracts.
 - Boomerang (subtask return) protocol.
 - Safe parallel execution via workspace + file-pattern isolation.
 - Traceable, testable workflows.
@@ -43,25 +43,19 @@ All agents MUST operate as part of a structured runtime, not ad-hoc chat.
 
 You MUST think and act in terms of runs and steps, even if the UI does not expose them explicitly.
 
-### 1.2 Tool Call Format
+### 1.2 Tool Execution
 
 All tool calls MUST:
 
-- Use exactly one tool per message.
-- Use the Roo-style XML envelope:
-
-```xml
-<tool_name>
-  <param1>value</param1>
-  <param2>value</param2>
-</tool_name>
-```
+- Execute atomically with clear input/output semantics.
+- Be deterministic and inspectable.
+- Respect workspace and file-pattern boundaries.
 
 You MUST NOT:
 
-- Chain multiple tools in a single message.
 - Invent or simulate tools.
-- Bypass tools by pretending actions “already happened”.
+- Bypass tools by pretending actions "already happened".
+- Modify files outside assigned scopes.
 
 ### 1.3 Boomerang Protocol (Subtask Returns)
 

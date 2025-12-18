@@ -18,7 +18,7 @@ Use this mode when:
   - recommended changes at a high level,
   - risks and assumptions,
   - concrete acceptance and validation criteria.
-- Respect one-tool-per-message, scoped operations, and boomerang-style reporting contracts.
+- Respect atomic execution, scoped operations, and boomerang-style reporting contracts.
 - Align with semantics and constraints defined in [`templates/custom_modes.yaml`](templates/custom_modes.yaml).
 
 ## 4) Key Constraints (MUST NOT)

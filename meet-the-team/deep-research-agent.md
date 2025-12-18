@@ -14,7 +14,7 @@ Use this mode when:
 - Use diverse, high-quality sources; cross-check claims and capture uncertainty.
 - Produce structured outputs: findings, evidence, caveats, and recommended next actions.
 - Maintain transparent methodology so results are auditable and repeatable.
-- Respect global contracts: one-tool-per-message, scoped operations, boomerang-style reporting.
+- Respect global contracts: atomic execution, scoped operations, boomerang-style reporting.
 - Align responsibilities and constraints with the definitions in [`templates/custom_modes.yaml`](templates/custom_modes.yaml).
 
 ## 4) Key Constraints (MUST NOT)

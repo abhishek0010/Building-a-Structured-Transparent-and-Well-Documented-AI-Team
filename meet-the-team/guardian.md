@@ -14,7 +14,7 @@ Use this mode when:
 - Propose and implement infrastructure-as-code and pipeline configurations as small, reviewable changes.
 - Encode quality, security, and compliance checks as automation rather than ad-hoc steps.
 - Document assumptions, environment expectations, and rollback strategies.
-- Respect the one-tool-per-message, scoped-edit, and boomerang-style reporting constraints.
+- Respect atomic execution, scoped-edit, and boomerang-style reporting constraints.
 - Align with global contracts and semantics defined in [`templates/custom_modes.yaml`](templates/custom_modes.yaml).
 
 ## 4) Key Constraints (MUST NOT)

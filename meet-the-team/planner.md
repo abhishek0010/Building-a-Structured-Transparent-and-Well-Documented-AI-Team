@@ -14,7 +14,7 @@ Use this mode when:
 - Include acceptance criteria, dependencies, and Definition of Done aligned with global contracts.
 - Keep backlog items scoped so they can be safely delegated by the Orchestrator.
 - Ensure consistency with Architect guidance and other authoritative docs (including [`templates/custom_modes.yaml`](templates/custom_modes.yaml)).
-- Respect one-tool-per-message, scoped-edit, and boomerang-style reporting constraints.
+- Respect atomic execution, scoped-edit, and boomerang-style reporting constraints.
 
 ## 4) Key Constraints (MUST NOT)
 - MUST NOT introduce scope or commitments that conflict with higher-level strategy or contracts.

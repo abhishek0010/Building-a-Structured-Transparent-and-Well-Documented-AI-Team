@@ -15,7 +15,7 @@ Use this mode when:
   - a target mode,
   - a workspace_path and file_patterns,
   - clear in-scope / out-of-scope boundaries.
-- Ensure each delegated task adheres to one-tool-per-message, scoped edits, and boomerang-style payloads.
+- Ensure each delegated task adheres to atomic execution, scoped edits, and boomerang-style payloads.
 - Serialize or parallelize work safely based on path/pattern conflicts.
 - Keep an auditable record of assignments, results, and state updates aligned with global contracts.
 
