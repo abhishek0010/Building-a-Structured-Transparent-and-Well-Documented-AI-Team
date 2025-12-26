@@ -1,0 +1,50 @@
+---
+description: OODA-based development workflow
+---
+
+# OODA Loop
+
+All work follows: Observe → Orient → Decide → Act
+
+## Observe
+- Read task/issue fully before coding
+- Scan relevant files and test status
+- Note dependencies and constraints
+
+## Orient
+- Map current vs goal state
+- Identify risks and unknowns
+- Decompose into atomic subtasks
+
+## Decide
+- Choose lowest-risk approach
+- Define scope boundaries
+- Set acceptance criteria
+
+## Act
+- Execute one subtask at a time
+- TDD: test first, then implement
+- Validate before moving on
+
+---
+
+# TDD Cycle
+
+**Red** → Failing test defines behavior
+**Green** → Minimal code to pass
+**Blue** → Refactor while green
+
+---
+
+# Scope Discipline
+
+- Stay within assigned files
+- No unrelated modifications  
+- Escalate ambiguous requirements
+- Minimal, surgical changes
+
+---
+
+# Completion
+
+Return: files changed, tests run, summary, open risks

@@ -1,260 +1,101 @@
 # Advanced Multi-Agent AI Framework
 
-A structured, production-ready multi-agent framework for coordinating specialized AI modes using clear contracts, deterministic execution, and traceable task flows.
+> A structured, production-ready multi-agent framework for coordinating specialized AI modes using clear contracts, deterministic execution, and traceable task flows.
 
-- Supports multi-mode agent teams (Orchestrator, Architect, Planner, Code, Debug, etc.)
-- Enforces scoped edits, deterministic workflows, and boomerang-style task returns
-- Works across any compatible AI runtime or platform (not tied to a single vendor)
-- Ships with reusable templates for modes, instructions, and slash-commands
+## Quick Start
 
-**🔗 Quick Links:** [`templates/`](templates/) · [`meet-the-team/`](meet-the-team/) · [`slash-commands/`](slash-commands/) · [`AGENTS.md`](AGENTS.md) *(if present)*
-
-## 🎯 What This Framework Delivers
-
-**Professional AI Team Management** - Deploy specialized AI agents with enterprise-grade coordination, advanced prompt engineering, and systematic workflow automation for superior development outcomes.
-
-### Key Benefits
-
-- **Structured multi-agent coordination** using Orchestrator / TDD phases (red/green/blue)
-- **Boomerang-style task returns** for traceable, auditable workflows
-- **Token-aware, minimal-diff editing** patterns for safe automated changes
-- **Production-oriented architecture** with explicit scopes, contracts, and documentation
-- **Extensible templates** for modes, instructions, and slash-commands without locking into specific tools
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-Use with any agentic runtime that supports:
-
-- Multiple modes / roles (e.g., Orchestrator, Planner, Code, Debug)
-- Custom/system instructions per mode
-- File-scoped, deterministic edits
-
-Examples (non-exclusive):
-
-- Roo / Responses-style runtimes
-- Kilo Code
-- Other IDE or API-based agents with similar capabilities
-
-### 1. Clone this repository
+**[→ Get Started in 5 Minutes](templates/quick-start.md)** — Choose your IDE and follow the setup guide.
 
 ```bash
 git clone https://github.com/Mnehmos/Advanced-Multi-Agent-AI-Framework.git
 cd Advanced-Multi-Agent-AI-Framework
 ```
 
-### 2. Review core contracts
+## Supported Tools
 
-- Global instructions and mode contracts (see [`AGENTS.md`](AGENTS.md) if present)
-- Mode templates in [`templates/custom_modes.yaml`](templates/custom_modes.yaml)
-- Shared instructions in [`templates/custom-instructions-for-all-modes.md`](templates/custom-instructions-for-all-modes.md)
-- Slash command designs in [`slash-commands/`](slash-commands/)
+| IDE / Tool | Template | Description |
+|------------|----------|-------------|
+| **Any IDE** | [AGENTS.md](templates/universal/AGENTS.md) | Universal agent instructions (works everywhere) |
+| **Roo Code** | [custom_modes.yaml](templates/custom_modes.yaml) | Full multi-mode configuration |
+| **Claude Code** | [CLAUDE.md](templates/claude-code/CLAUDE.md) | Claude Code system instructions |
+| **Cursor** | [_global.mdc](templates/cursor/rules/_global.mdc) | Cursor rules in MDC format |
+| **GitHub Copilot** | [copilot-instructions.md](templates/copilot/copilot-instructions.md) | Copilot custom instructions |
 
-### 3. Configure your assistant / runtime
+**Full Setup Guide:** [templates/quick-start.md](templates/quick-start.md)
 
-Use the sections below ("How to use this as a GitHub Template" and "Compatibility / Requirements") to wire these files into your environment and start orchestrating work via the Orchestrator/TDD pattern.
+## Core Concepts
 
-## 📦 How to use this as a GitHub Template
+### Multi-Agent Coordination
+Specialized agents work together through an Orchestrator that delegates tasks to the right specialist:
 
-Use this repository as a starting point for your own multi-agent setup:
+| Role | Purpose |
+|------|---------|
+| **Orchestrator** | Project management, task delegation, workflow coordination |
+| **Architect** | System design, ADRs, technical contracts |
+| **Planner** | Requirements, task maps, backlog management |
+| **Code** | Implementation, refactoring, optimization |
+| **Debug** | Root cause analysis, diagnostics |
 
-1. In GitHub, click "Use this template" on the repository page.
-2. Create your new repository from this template.
-3. In your new repo, keep the structure of:
-   - [`templates/custom_modes.yaml`](templates/custom_modes.yaml)
-   - [`templates/custom-instructions-for-all-modes.md`](templates/custom-instructions-for-all-modes.md)
-   - [`templates/enhance-prompt-template.md`](templates/enhance-prompt-template.md)
-   - [`slash-commands/`](slash-commands/)
-   - [`meet-the-team/`](meet-the-team/)
-   - [`AGENTS.md`](AGENTS.md) *(if present)* to house global contracts.
-4. In your chosen AI platform or runtime:
-   - Load the "custom instructions for all modes" into the global/system instructions.
-   - Load or adapt `custom_modes.yaml` into the platform's mode/multi-agent configuration.
-   - Optionally register slash-commands based on [`slash-commands/`](slash-commands/) to standardize workflows.
-5. Start runs with an Orchestrator-style mode that:
-   - Decomposes work into subtasks,
-   - Delegates to TDD phases (red → green → blue) with scoped file patterns,
-   - Validates results through structured boomerang returns.
+### TDD Workflow (Red → Green → Blue)
+- **Red Phase**: Write failing tests first
+- **Green Phase**: Minimal implementation to pass tests
+- **Blue Phase**: Refactor while keeping tests green
 
-This keeps the framework portable while preserving the core coordination patterns.
+### Boomerang Task Returns
+Every delegated task returns with structured results: status, files changed, tests run, and summary. This ensures traceability and auditability.
 
-## 🧩 Compatibility / Requirements
+## Templates
 
-This framework is designed to be environment-agnostic. Any runtime is compatible if it supports:
+All configuration templates are in [`templates/`](templates/):
 
+| File | Purpose |
+|------|---------|
+| [custom_modes.yaml](templates/custom_modes.yaml) | Mode definitions for Roo Code |
+| [custom-instructions-for-all-modes.md](templates/custom-instructions-for-all-modes.md) | Shared agent instructions |
+| [slash-commands.yaml](templates/slash-commands.yaml) | Slash command definitions |
+| [enhance-prompt-template.md](templates/enhance-prompt-template.md) | Prompt enhancement patterns |
+
+## Meet the Team
+
+Detailed profiles for each AI specialist in [`meet-the-team/`](meet-the-team/):
+
+[Orchestrator](meet-the-team/orchestrator.md) · [Architect](meet-the-team/architect.md) · [Planner](meet-the-team/planner.md) · [Code](meet-the-team/code.md) · [Debug](meet-the-team/debug.md) · [Ask](meet-the-team/ask.md) · [Deep Research](meet-the-team/deep-research-agent.md) · [Memory](meet-the-team/memory.md)
+
+## Slash Commands
+
+Standardized commands for common workflows in [`slash-commands/`](slash-commands/):
+
+`/plan` · `/build` · `/test` · `/review` · `/debug` · `/refactor` · `/docs` · [View All →](slash-commands/README.md)
+
+## Key Features
+
+- **Scoped Edits**: Agents operate within assigned workspace paths and file patterns
+- **Deterministic Workflows**: Inspectable steps, atomic tool execution
+- **Platform Agnostic**: Works with Roo Code, Claude Code, Cursor, Copilot, or custom runtimes
+- **Token Efficient**: Context-aware, minimal-diff editing patterns
+- **Extensible**: Add custom modes, slash commands, and templates
+
+## Requirements
+
+Any agentic runtime supporting:
+- Multiple modes/roles with distinct instructions
 - Atomic tool execution
-- Multiple modes / roles with distinct instructions
-- Ability to enforce:
-  - Workspace paths and file pattern scopes
-  - Deterministic, inspectable steps
-- Support for structured, JSON-like "boomerang" task return payloads
+- File-scoped deterministic edits
 
-Examples:
+## Contributing
 
-- Roo-style / Responses-style orchestrated environments
-- Kilo Code (using custom modes and project/global instructions)
-- Custom in-house agentic runtimes wired to follow the same contracts
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-## 🏛️ Framework Architecture
+- ⭐ Star this repo if useful
+- 🐛 Open issues for bugs or suggestions
+- 🔀 PRs welcome for templates, docs, and examples
 
-### Core Coordination Layer
-| Mode | Specialization | Advanced Techniques |
-|------|----------------|-------------------|
-| **🔄 Orchestrator** | Project Management & Task Delegation | `workflow-template-prompting`, `boomerang-task-delegation` |
-| **🏛️ Architect** | System Design & Architecture | `visual-documentation-generation`, `tree-of-thoughts` |
-| **📋 Planner** | Product Planning & Requirements | `user-story-prompting`, `stakeholder-perspective-analysis` |
+## License
 
-### TDD Team
-| Mode | Specialization | Advanced Techniques |
-|------|----------------|-------------------|
-| **🔴 Red Phase** | Test-First Development | `test-driven-design`, `behavior-specification` |
-| **🟢 Green Phase** | Minimal Implementation | `incremental-implementation`, `test-passing-focus` |
-| **🔵 Blue Phase** | Refactoring & Polish | `code-quality-improvement`, `dry-solid-principles` |
-| **💻 Code** | Advanced Coding & Optimization | `modular-code-generation`, `language-construct-modeling` |
+[MIT License](LICENSE) — Open source for professional and commercial use.
 
-### Research & Analysis Team
-| Mode | Specialization | Advanced Techniques |
-|------|----------------|-------------------|
-| **❓ Ask** | Information Discovery | `rag`, `iterative-retrieval-augmentation` |
-| **🔎 Deep Research** | Comprehensive Analysis | `multi-perspective-analysis`, `systematic-literature-review` |
-| **🔬 Deep Scope** | Issue Analysis & Scoping | `codebase-impact-mapping`, `hypothetical-scenario-modeling` |
+### Acknowledgments
 
-### Support Specialists
-| Mode | Specialization | Advanced Techniques |
-|------|----------------|-------------------|
-| **🐛 Debug** | Technical Diagnostics | `five-whys-prompting`, `chain-of-verification` |
-| **📁 Memory** | Knowledge Management | `semantic-clustering`, `knowledge-graph-construction` |
-
-## 🎯 Use Cases & Applications
-
-### **Enterprise Software Development**
-- Structured multi-agent assistance for large codebases
-- Automated, scope-safe refactors and reviews
-- Task-mapped execution with clear success criteria
-
-### **AI / LLM Products**
-- Multi-mode assistants (Ask, Plan, Code, Debug) behind a single interface
-- Repeatable workflows via shared slash-commands
-- Auditable changes for safety and compliance
-
-### **Internal Tooling & Ops**
-- CI/CD-aligned agent workflows
-- Documentation and knowledge base automation
-- Safe infrastructure and config updates via TDD phases
-
-## 🔄 The SPARC + Boomerang Methodology
-
-### SPARC Framework Integration
-**S**pecification → **P**seudocode → **A**rchitecture → **R**efinement → **C**ompletion
-
-### Boomerang Task Delegation
-
-1. **Task Creation** - Orchestrator generates structured tasks from project requirements
-2. **Specialist Assignment** - Tasks delegated to the most appropriate mode/agent
-3. **TDD Execution** - Red → Green → Blue phases operate within assigned workspace paths and file patterns
-4. **Quality Integration** - Results are validated through structured boomerang returns and merged back
-5. **Iterative Improvement** - Feedback loops refine instructions, scopes, and contracts
-
-## 📊 Performance & Optimization Features
-
-### **Token Efficiency**
-- Context window utilization kept below 40%
-- Cognitive primitive optimization (start small, scale up)
-- Specialized mode selection for minimal resource usage
-- "Scalpel, not Hammer" resource management philosophy
-
-### **Quality Assurance**
-- Structured task validation and success criteria
-- Cross-mode verification and error checking
-- Comprehensive documentation and traceability
-- Automated workflow optimization
-
-### **Scalability**
-- Modular architecture supporting team expansion
-- Customizable prompt engineering technique integration
-- Enterprise workflow pattern implementation
-- Professional project management capabilities
-
-## 📚 Advanced Documentation
-
-### **Framework Configuration**
-- [🛠️ Custom Instructions Guide](templates/custom-instructions-for-all-modes.md)
-- [⚙️ Custom Modes Configuration](templates/custom_modes.yaml)
-- [✨ Enhance Prompt Documentation](templates/enhance-prompt-template.md)
-
-### **Team Member Profiles**
-Detailed documentation for each AI specialist:
-- [Meet the AI Team →](meet-the-team/)
-
-### **Task Management**
-```markdown
-# Project: Advanced AI System Development
-
-## Phase 1: Architecture Planning
-- [ ] **Task 1.1**: System design and architecture planning
-  - **Agent**: Architect
-  - **Dependencies**: None
-  - **Outputs**: [architecture_diagram.md, technical_specifications.md]
-  - **Validation**: Architecture review completed with stakeholder approval
-  - **Human Checkpoint**: YES
-  - **Scope**: Complete system architecture design using visual-documentation-generation and tree-of-thoughts techniques
-```
-
-## 🛡️ Enterprise Features
-
-### **Security & Compliance**
-- Structured documentation for audit trails
-- Role-based task assignment and validation
-- Quality gates and automated verification
-- Professional workflow management
-
-### **Integration Capabilities**
-- GitHub integration for issue and PR management
-- CI/CD pipeline automation
-- Knowledge management system integration
-- Custom prompt engineering technique deployment
-
-### **Support & Maintenance**
-- Comprehensive error handling and debugging
-- Performance monitoring and optimization
-- Documentation generation and maintenance
-- Continuous improvement through feedback integration
-
-## 🤝 Community & Contributions
-
-- ⭐ Star this repository if you find the framework useful.
-- 🛠️ Open issues or pull requests to refine contracts, docs, or examples.
-- 🔗 Downstream users: keep this README neutral and add platform-specific details in your own overlays.
-
-## 📈 Roadmap & Future Development
-
-- Additional mode templates and role contracts
-- More end-to-end examples for different runtimes
-- Extended slash-command libraries for common workflows
-
-## 📄 License & Attribution
-
-**MIT License** - Open source framework for professional and commercial use.
-
-### **Acknowledgments**
-- SPARC Framework development community
-- Multi-agent AI research contributors
-- Kilo Code platform development team
-- Advanced prompt engineering research community
-- Framework users providing feedback and improvements
-- Vincent Shing Hin Chong for their work into Language Construct Modeling | https://osf.io/q6cyp/
-- 20+ research papers sources listed here: https://mnehmos.github.io/Prompt-Engineering/sources.html
----
-
-## 🎯 Summary
-
-This repository provides a template-friendly, platform-agnostic entrypoint for:
-
-- Defining clear multi-agent roles and contracts
-- Running deterministic, auditable, atomic workflows
-- Using reusable templates for modes, shared instructions, and slash-commands
-
-Start from this template, connect it to your preferred agent runtime, and coordinate complex work through the Orchestrator/TDD pattern with scoped, reviewable changes.
-
-[`README.md`](README.md)
+- [Prompt Engineering Sources](https://mnehmos.github.io/Prompt-Engineering/sources.html) (20+ research papers)
+- Vincent Shing Hin Chong — [Language Construct Modeling](https://osf.io/q6cyp/)
+- Multi-agent AI research community
