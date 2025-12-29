@@ -1,17 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <!-- Copper gradient for high contrast -->
+    <linearGradient id="copperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4956A"/>
+      <stop offset="100%" style="stop-color:#B87333"/>
+    </linearGradient>
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="0.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
   <!-- Background -->
-  <rect width="32" height="32" rx="6" fill="#1C1917"/>
+  <rect width="32" height="32" rx="6" fill="#0C0A09"/>
   
-  <!-- Multi-agent symbol - interconnected nodes -->
-  <circle cx="16" cy="8" r="3" fill="#B87333"/>
-  <circle cx="8" cy="20" r="3" fill="#B87333"/>
-  <circle cx="24" cy="20" r="3" fill="#B87333"/>
-  <circle cx="16" cy="24" r="2" fill="#78716C"/>
+  <!-- Connection lines with pulse animation -->
+  <g stroke="#B87333" stroke-width="2" stroke-linecap="round" opacity="0.6">
+    <line x1="16" y1="11" x2="10" y2="18">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="16" y1="11" x2="22" y2="18">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+    </line>
+    <line x1="11" y1="20" x2="21" y2="20">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+    </line>
+  </g>
   
-  <!-- Connection lines -->
-  <line x1="16" y1="11" x2="10" y2="18" stroke="#78716C" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="16" y1="11" x2="22" y2="18" stroke="#78716C" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="11" y1="20" x2="21" y2="20" stroke="#78716C" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="8" y1="22.5" x2="14.5" y2="24" stroke="#78716C" stroke-width="1" stroke-linecap="round"/>
-  <line x1="24" y1="22.5" x2="17.5" y2="24" stroke="#78716C" stroke-width="1" stroke-linecap="round"/>
+  <!-- Main nodes with glow -->
+  <g filter="url(#glow)">
+    <!-- Top node (orchestrator) -->
+    <circle cx="16" cy="8" r="3.5" fill="url(#copperGrad)">
+      <animate attributeName="r" values="3.5;4;3.5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Left node -->
+    <circle cx="8" cy="20" r="3" fill="url(#copperGrad)">
+      <animate attributeName="r" values="3;3.5;3" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    
+    <!-- Right node -->
+    <circle cx="24" cy="20" r="3" fill="url(#copperGrad)">
+      <animate attributeName="r" values="3;3.5;3" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    
+    <!-- Bottom node -->
+    <circle cx="16" cy="26" r="2.5" fill="#D4956A">
+      <animate attributeName="r" values="2.5;3;2.5" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+  </g>
+  
+  <!-- Center accent -->
+  <circle cx="16" cy="16" r="1.5" fill="#FCD34D" opacity="0.8">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </circle>
 </svg>

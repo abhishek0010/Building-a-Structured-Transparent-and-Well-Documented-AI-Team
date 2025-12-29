@@ -34,3 +34,91 @@ html {
   outline: 2px solid #B87333;
   outline-offset: 2px;
 }
+
+/* Buy Me a Coffee button with high contrast and animation */
+.bmc-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
+  color: #FAFAF9;
+  border: 1px solid #44403C;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bmc-button:hover {
+  background: linear-gradient(135deg, #292524 0%, #3D3834 100%);
+  border-color: #B87333;
+  box-shadow: 0 4px 12px rgba(184, 115, 51, 0.3);
+  transform: translateY(-1px);
+}
+
+.bmc-button .bmc-icon {
+  animation: coffee-steam 2s ease-in-out infinite;
+}
+
+@keyframes coffee-steam {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+}
+
+/* Header logo animations */
+.header-logo .logo-nodes circle {
+  transition: all 0.3s ease;
+}
+
+.header-logo:hover .logo-nodes circle,
+.group:hover .header-logo .logo-nodes circle {
+  filter: drop-shadow(0 0 3px #B87333);
+}
+
+.header-logo .logo-lines line {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.header-logo:hover .logo-lines line,
+.group:hover .header-logo .logo-lines line {
+  opacity: 1;
+  animation: line-pulse 1.5s ease-in-out infinite;
+}
+
+.header-logo .logo-center {
+  transition: all 0.3s ease;
+}
+
+.header-logo:hover .logo-center,
+.group:hover .header-logo .logo-center {
+  animation: center-pulse 1s ease-in-out infinite;
+}
+
+@keyframes line-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes center-pulse {
+  0%, 100% {
+    opacity: 0.8;
+    r: 1.5;
+  }
+  50% {
+    opacity: 1;
+    r: 2;
+  }
+}
