@@ -2,6 +2,8 @@
 
 > A structured, production-ready multi-agent framework for coordinating specialized AI modes using clear contracts, deterministic execution, and traceable task flows.
 
+**🌐 [Visit the Website](https://mnehmos.github.io/mnehmos.multi-agent.framework)** — Full documentation, guides, and MCP ecosystem
+
 ## Quick Start
 
 **[→ Get Started in 5 Minutes](templates/quick-start.md)** — Choose your IDE and follow the setup guide.

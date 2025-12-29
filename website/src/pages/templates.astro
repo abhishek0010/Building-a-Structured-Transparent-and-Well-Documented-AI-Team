@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const templates = [
+  {
+    id: "roo",
+    name: "Roo Code",
+    icon: "🔧",
+    description: "Full multi-mode configuration with all 13 agents, custom instructions, and slash commands.",
+    file: "custom_modes.yaml",
+    features: ["All 13 agent modes", "Mode-specific rules", "Slash commands", "Tool groups"],
+    recommended: true
+  },
+  {
+    id: "claude",
+    name: "Claude Code",
+    icon: "✨",
+    description: "CLAUDE.md system instructions for Claude Code CLI with contract-driven behaviors.",
+    file: "CLAUDE.md",
+    features: ["System instructions", "Contract enforcement", "Boomerang protocol", "Parallel safety"]
+  },
+  {
+    id: "cursor",
+    name: "Cursor",
+    icon: "🎯",
+    description: "Cursor rules in MDC format for intelligent code editing with multi-agent workflows.",
+    file: "_global.mdc",
+    features: ["MDC format", "Global rules", "Mode switching", "Context awareness"]
+  },
+  {
+    id: "copilot",
+    name: "GitHub Copilot",
+    icon: "🤖",
+    description: "Custom instructions for GitHub Copilot to follow multi-agent patterns.",
+    file: "copilot-instructions.md",
+    features: ["Custom instructions", "Pattern guidance", "Code suggestions", "Workflow hints"]
+  },
+  {
+    id: "universal",
+    name: "Universal (AGENTS.md)",
+    icon: "🌐",
+    description: "Works everywhere! Universal agent instructions that can be adapted to any IDE or tool.",
+    file: "AGENTS.md",
+    features: ["IDE-agnostic", "Complete contracts", "Role definitions", "Behavioral rules"]
+  },
+];
+
+const slashCommands = [
+  { name: "/plan", desc: "Create a structured task plan" },
+  { name: "/scope", desc: "Analyze and scope a feature" },
+  { name: "/design", desc: "Create architectural designs" },
+  { name: "/build", desc: "Implement a feature" },
+  { name: "/test", desc: "Write or run tests" },
+  { name: "/debug", desc: "Diagnose and fix issues" },
+  { name: "/review", desc: "Review code changes" },
+  { name: "/refactor", desc: "Improve code structure" },
+  { name: "/docs", desc: "Generate documentation" },
+  { name: "/research", desc: "Research a topic" },
+  { name: "/status", desc: "Get project status" },
+  { name: "/help", desc: "Show available commands" },
+];
+---
+
+<Layout title="Templates" description="IDE-specific templates and configurations for the Multi-Agent Framework">
+  <!-- Hero -->
+  <section class="py-24 relative">
+    <div class="glow-orb w-96 h-96 bg-blue-500 -top-20 -left-48"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+          <span class="gradient-text">Templates</span> & Configurations
+        </h1>
+        <p class="text-xl text-slate-400">
+          Ready-to-use templates for your favorite IDE. Choose your tool and get started in minutes.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Templates Grid -->
+  <section class="pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {templates.map(template => (
+          <div id={template.id} class={`card relative ${template.recommended ? 'ring-2 ring-blue-500/50' : ''}`}>
+            {template.recommended && (
+              <div class="absolute -top-3 left-4 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                Recommended
+              </div>
+            )}
+            
+            <div class="flex items-center gap-3 mb-4">
+              <div class="agent-icon">
+                <span>{template.icon}</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg">{template.name}</h3>
+                <code class="text-sm text-slate-500">{template.file}</code>
+              </div>
+            </div>
+            
+            <p class="text-slate-400 mb-4">{template.description}</p>
+            
+            <ul class="space-y-2 mb-6">
+              {template.features.map(feature => (
+                <li class="flex items-center gap-2 text-sm text-slate-300">
+                  <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            
+            <a href={`https://github.com/Mnehmos/mnehmos.multi-agent.framework/blob/main/templates/${template.file.includes('.yaml') ? template.file : template.id + '/' + template.file}`} target="_blank" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition text-sm">
+              <span>View Template</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Slash Commands -->
+  <section class="py-24 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Slash Commands</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+          Predefined commands that trigger specific workflows. Available in Roo Code and compatible IDEs.
+        </p>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {slashCommands.map(cmd => (
+          <div class="card py-4">
+            <code class="text-blue-400 font-mono font-semibold">{cmd.name}</code>
+            <p class="text-slate-400 text-sm mt-1">{cmd.desc}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div class="text-center mt-8">
+        <a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework/tree/main/slash-commands" target="_blank" class="text-blue-400 hover:text-blue-300 transition inline-flex items-center gap-2">
+          <span>View all 25+ commands</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Tool-Enabled Templates -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Tool-Enabled Templates</h2>
+        <p class="text-slate-400 text-lg">
+          Enhanced templates with MCP tool instructions baked in for maximum capability.
+        </p>
+      </div>
+      
+      <div class="card">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="agent-icon">
+            <span>🔌</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">Tool-Enhanced Custom Instructions</h3>
+            <p class="text-slate-400 text-sm">Templates with embedded MCP tool guidance</p>
+          </div>
+        </div>
+        
+        <p class="text-slate-300 mb-6">
+          These templates include instructions for using the Mnehmos MCP ecosystem tools (OODA, Synch, Index Foundry, etc.) directly in the agent prompts, enabling agents to leverage these tools automatically.
+        </p>
+        
+        <div class="grid sm:grid-cols-2 gap-4 mb-6">
+          <div class="bg-slate-900/50 rounded-lg p-4">
+            <h4 class="font-semibold mb-2">🖥️ OODA MCP</h4>
+            <p class="text-slate-400 text-sm">Computer control, file management, automation</p>
+          </div>
+          <div class="bg-slate-900/50 rounded-lg p-4">
+            <h4 class="font-semibold mb-2">🧠 Synch MCP</h4>
+            <p class="text-slate-400 text-sm">Persistent memory, context handoffs</p>
+          </div>
+          <div class="bg-slate-900/50 rounded-lg p-4">
+            <h4 class="font-semibold mb-2">🔍 Index Foundry</h4>
+            <p class="text-slate-400 text-sm">RAG pipelines, vector search</p>
+          </div>
+          <div class="bg-slate-900/50 rounded-lg p-4">
+            <h4 class="font-semibold mb-2">📊 Trace MCP</h4>
+            <p class="text-slate-400 text-sm">Schema validation, contract tracing</p>
+          </div>
+        </div>
+        
+        <a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework/tree/main/templates/tool-enabled" target="_blank" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition">
+          <span>View Tool-Enabled Templates</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="py-24 bg-slate-900/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+      <p class="text-slate-400 text-lg mb-8">
+        Clone the repo and follow the quick start guide for your IDE.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/get-started" class="btn-primary">Quick Start Guide</a>
+        <a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework" target="_blank" class="btn-secondary">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

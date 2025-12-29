@@ -1,0 +1,254 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tools = [
+  {
+    name: "OODA MCP",
+    icon: "🖥️",
+    tagline: "Full Computer Control",
+    description: "Execute shell commands, manage files, control keyboard/mouse, capture screenshots, manage windows, and automate browser interactions. The ultimate automation tool for AI agents.",
+    features: [
+      "Shell command execution",
+      "File system operations", 
+      "Keyboard & mouse control",
+      "Screenshot capture",
+      "Window management",
+      "Browser automation",
+      "Process management",
+      "Clipboard access"
+    ],
+    github: "https://github.com/Mnehmos/mnehmos.ooda.mcp",
+    color: "blue"
+  },
+  {
+    name: "Synch MCP",
+    icon: "🧠",
+    tagline: "Persistent Memory & Context",
+    description: "Maintain context across sessions with filing cabinet indexing, spatial maps, bug tracking, and agent handoff protocols. Essential for long-running projects.",
+    features: [
+      "Active context management",
+      "Filing cabinet indexing",
+      "Spatial maps (PC as Rooms)",
+      "Bug logging & tracking",
+      "Resource locking",
+      "Context event handoffs",
+      "Project-scoped memory"
+    ],
+    github: "https://github.com/Mnehmos/mnehmos.synch.mcp",
+    color: "purple"
+  },
+  {
+    name: "Index Foundry MCP",
+    icon: "🔍",
+    tagline: "RAG Pipeline Builder",
+    description: "Build production-ready RAG (Retrieval Augmented Generation) pipelines. Connect sources, extract content, chunk, embed, and deploy searchable APIs.",
+    features: [
+      "Multi-source ingestion",
+      "PDF/HTML extraction",
+      "Smart chunking strategies",
+      "OpenAI embeddings",
+      "Vector search",
+      "Hybrid search (keyword + semantic)",
+      "Self-hosted deployment"
+    ],
+    github: "https://github.com/Mnehmos/mnehmos.index-foundry.mcp",
+    color: "cyan"
+  },
+  {
+    name: "Trace MCP",
+    icon: "📊",
+    tagline: "Schema Validation & Tracing",
+    description: "Extract MCP tool definitions from server source, trace client usage, compare schemas, and scaffold code with contract verification.",
+    features: [
+      "Schema extraction",
+      "Usage tracing",
+      "Contract comparison",
+      "Consumer scaffolding",
+      "Producer scaffolding",
+      "Watch mode",
+      "Cross-reference comments"
+    ],
+    github: "https://github.com/Mnehmos/mnehmos.trace.mcp",
+    color: "orange"
+  },
+  {
+    name: "arXiv MCP",
+    icon: "📚",
+    tagline: "Research Paper Access",
+    description: "Search and retrieve academic papers from arXiv. Get paper metadata, download PDFs, and extract full text content for research tasks.",
+    features: [
+      "Paper search",
+      "Category browsing",
+      "Metadata retrieval",
+      "PDF content extraction",
+      "Author search",
+      "Citation access"
+    ],
+    github: "https://github.com/Mnehmos/mnehmos.arxiv.mcp",
+    color: "green"
+  },
+  {
+    name: "ChatRPG Game",
+    icon: "🎲",
+    tagline: "D&D 5e Game Engine",
+    description: "Full D&D 5e combat and character management system. Create characters, run encounters, manage conditions, and roll dice with complete rules support.",
+    features: [
+      "Character creation & management",
+      "Combat encounters",
+      "Dice rolling with advantage",
+      "Spell slot tracking",
+      "Condition management",
+      "Battlefield visualization",
+      "Death saves & rests"
+    ],
+    github: "https://github.com/Mnehmos/mnehmos.chatrpg.game",
+    color: "red"
+  },
+];
+
+const getColorClasses = (color: string) => {
+  const colors: Record<string, { bg: string, border: string, icon: string }> = {
+    blue: { bg: "from-blue-500/10 to-blue-600/5", border: "border-blue-500/30 hover:border-blue-500/50", icon: "from-blue-500 to-blue-600" },
+    purple: { bg: "from-purple-500/10 to-purple-600/5", border: "border-purple-500/30 hover:border-purple-500/50", icon: "from-purple-500 to-purple-600" },
+    cyan: { bg: "from-cyan-500/10 to-cyan-600/5", border: "border-cyan-500/30 hover:border-cyan-500/50", icon: "from-cyan-500 to-cyan-600" },
+    orange: { bg: "from-orange-500/10 to-orange-600/5", border: "border-orange-500/30 hover:border-orange-500/50", icon: "from-orange-500 to-orange-600" },
+    green: { bg: "from-green-500/10 to-green-600/5", border: "border-green-500/30 hover:border-green-500/50", icon: "from-green-500 to-green-600" },
+    red: { bg: "from-red-500/10 to-red-600/5", border: "border-red-500/30 hover:border-red-500/50", icon: "from-red-500 to-red-600" },
+  };
+  return colors[color] || colors.blue;
+};
+---
+
+<Layout title="MCP Tools" description="Extend your AI agents with powerful Model Context Protocol tools from the Mnehmos ecosystem">
+  <!-- Hero -->
+  <section class="py-24 relative">
+    <div class="glow-orb w-96 h-96 bg-cyan-500 -top-20 -right-48"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 bg-slate-800/50 border border-slate-700 rounded-full px-4 py-2 mb-6">
+          <span class="text-sm text-slate-300">Model Context Protocol</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+          <span class="gradient-text">Mnehmos</span> MCP Ecosystem
+        </h1>
+        <p class="text-xl text-slate-400">
+          Powerful tools that extend your AI agents with computer control, persistent memory, RAG pipelines, research access, and more.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Tools Grid -->
+  <section class="pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-8">
+        {tools.map(tool => {
+          const colors = getColorClasses(tool.color);
+          return (
+            <div class={`rounded-2xl bg-gradient-to-br ${colors.bg} border ${colors.border} p-6 sm:p-8 transition-all duration-300`}>
+              <div class="flex flex-col lg:flex-row lg:items-start gap-6">
+                <div class="flex-shrink-0">
+                  <div class={`w-16 h-16 rounded-xl bg-gradient-to-br ${colors.icon} flex items-center justify-center text-3xl`}>
+                    {tool.icon}
+                  </div>
+                </div>
+                
+                <div class="flex-grow">
+                  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
+                    <h3 class="text-2xl font-bold">{tool.name}</h3>
+                    <span class="text-slate-400">•</span>
+                    <span class="text-slate-400">{tool.tagline}</span>
+                  </div>
+                  
+                  <p class="text-slate-300 mb-6 max-w-3xl">{tool.description}</p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-6">
+                    {tool.features.map(feature => (
+                      <span class="text-sm bg-slate-900/50 text-slate-300 px-3 py-1 rounded-full border border-slate-700/50">
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <a href={tool.github} target="_blank" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                    <span>View on GitHub</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Integration -->
+  <section class="py-24 bg-slate-900/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Easy Integration</h2>
+        <p class="text-slate-400 text-lg">
+          Add MCP tools to your agent configuration in seconds.
+        </p>
+      </div>
+      
+      <div class="card bg-slate-950/50">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-sm text-slate-500">mcp_settings.json</span>
+        </div>
+        <pre class="text-sm overflow-x-auto"><code class="text-slate-300">{`{
+  "mcpServers": {
+    "ooda": {
+      "command": "node",
+      "args": ["path/to/mnehmos.ooda.mcp/dist/index.js"]
+    },
+    "synch": {
+      "command": "node", 
+      "args": ["path/to/mnehmos.synch.mcp/dist/index.js"]
+    },
+    "index-foundry": {
+      "command": "node",
+      "args": ["path/to/mnehmos.index-foundry.mcp/dist/index.js"]
+    }
+  }
+}`}</code></pre>
+      </div>
+      
+      <div class="text-center mt-8">
+        <a href="/get-started" class="btn-primary">
+          <span>Full Setup Guide</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-6">Build Your Own MCP Tools</h2>
+      <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
+        The MCP ecosystem is open and extensible. Create custom tools that integrate seamlessly with the Multi-Agent Framework.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://modelcontextprotocol.io" target="_blank" class="btn-secondary">
+          <span>Learn about MCP</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+        <a href="https://vario.automation" target="_blank" class="btn-primary">
+          <span>Explore Vario Automation</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

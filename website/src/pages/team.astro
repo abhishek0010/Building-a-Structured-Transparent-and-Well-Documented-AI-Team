@@ -1,0 +1,271 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const agents = [
+  {
+    emoji: "🔄",
+    name: "Orchestrator",
+    slug: "orchestrator",
+    tagline: "The Conductor",
+    description: "Plans and coordinates work across modes. Decomposes high-level goals into atomic, testable subtasks.",
+    capabilities: ["Task decomposition", "Parallel scheduling", "Boomerang validation", "Scope enforcement"],
+    color: "blue"
+  },
+  {
+    emoji: "🏛️",
+    name: "Architect",
+    slug: "architect",
+    tagline: "The Designer",
+    description: "Creates ADRs, design docs, API contracts, and cross-cutting technical decisions.",
+    capabilities: ["System design", "ADR creation", "Contract definition", "Technical decisions"],
+    color: "purple"
+  },
+  {
+    emoji: "💻",
+    name: "Code",
+    slug: "code",
+    tagline: "The Builder",
+    description: "Advanced implementation, refactoring, and optimization for complex systems.",
+    capabilities: ["Complex implementation", "Refactoring", "Performance optimization", "Code quality"],
+    color: "green"
+  },
+  {
+    emoji: "🐛",
+    name: "Debug",
+    slug: "debug",
+    tagline: "The Detective",
+    description: "Diagnoses and fixes bugs, performance bottlenecks, and technical issues.",
+    capabilities: ["Root cause analysis", "Bug diagnosis", "Performance profiling", "Issue resolution"],
+    color: "red"
+  },
+  {
+    emoji: "❓",
+    name: "Ask",
+    slug: "ask",
+    tagline: "The Researcher",
+    description: "Provides clarification, research synthesis, and actionable explanations.",
+    capabilities: ["Research synthesis", "Clarification", "Mode recommendations", "Knowledge lookup"],
+    color: "cyan"
+  },
+  {
+    emoji: "📋",
+    name: "Planner",
+    slug: "planner",
+    tagline: "The Strategist",
+    description: "Designs Task Maps and structured backlogs for complex projects.",
+    capabilities: ["Task mapping", "Backlog creation", "Dependency analysis", "Sprint planning"],
+    color: "orange"
+  },
+  {
+    emoji: "🔴",
+    name: "Red Phase",
+    slug: "red-phase",
+    tagline: "The Test Writer",
+    description: "TDD Phase 1: Writes failing tests before any implementation begins.",
+    capabilities: ["Test design", "Failure verification", "Spec creation", "Coverage planning"],
+    color: "red"
+  },
+  {
+    emoji: "🟢",
+    name: "Green Phase",
+    slug: "green-phase",
+    tagline: "The Implementer",
+    description: "TDD Phase 2: Implements minimal code to make failing tests pass.",
+    capabilities: ["Minimal implementation", "Test passing", "Feature completion", "Correctness focus"],
+    color: "green"
+  },
+  {
+    emoji: "🔵",
+    name: "Blue Phase",
+    slug: "blue-phase",
+    tagline: "The Refactorer",
+    description: "TDD Phase 3: Refactors code while maintaining all passing tests.",
+    capabilities: ["Code cleanup", "Pattern extraction", "Performance tuning", "Readability"],
+    color: "blue"
+  },
+  {
+    emoji: "📁",
+    name: "Memory",
+    slug: "memory",
+    tagline: "The Librarian",
+    description: "Manages documentation, wikis, and knowledge base structuring.",
+    capabilities: ["Documentation", "Wiki management", "Knowledge organization", "Context preservation"],
+    color: "purple"
+  },
+  {
+    emoji: "🔎",
+    name: "Deep Research",
+    slug: "deep-research-agent",
+    tagline: "The Scholar",
+    description: "Performs complex research, competitive analysis, and technical deep dives.",
+    capabilities: ["Academic research", "Competitive analysis", "Technical synthesis", "Citation gathering"],
+    color: "indigo"
+  },
+  {
+    emoji: "🔬",
+    name: "Deep Scope",
+    slug: "deep-scope",
+    tagline: "The Analyst",
+    description: "Provides structured scoping before implementation begins.",
+    capabilities: ["Scope analysis", "Risk assessment", "Feasibility study", "Requirement extraction"],
+    color: "teal"
+  },
+  {
+    emoji: "🎮",
+    name: "TDD Playtest",
+    slug: "tdd-playtest",
+    tagline: "The Tester",
+    description: "Game and interaction testing with structured feedback loops.",
+    capabilities: ["Gameplay testing", "UX validation", "Bug reproduction", "Feedback synthesis"],
+    color: "pink"
+  },
+];
+
+const getColorClasses = (color: string) => {
+  const colors: Record<string, string> = {
+    blue: "from-blue-500/20 to-blue-600/20 border-blue-500/30",
+    purple: "from-purple-500/20 to-purple-600/20 border-purple-500/30",
+    green: "from-green-500/20 to-green-600/20 border-green-500/30",
+    red: "from-red-500/20 to-red-600/20 border-red-500/30",
+    cyan: "from-cyan-500/20 to-cyan-600/20 border-cyan-500/30",
+    orange: "from-orange-500/20 to-orange-600/20 border-orange-500/30",
+    indigo: "from-indigo-500/20 to-indigo-600/20 border-indigo-500/30",
+    teal: "from-teal-500/20 to-teal-600/20 border-teal-500/30",
+    pink: "from-pink-500/20 to-pink-600/20 border-pink-500/30",
+  };
+  return colors[color] || colors.blue;
+};
+---
+
+<Layout title="Meet the Team" description="Explore the 13 specialized AI agents in the Multi-Agent Framework">
+  <!-- Hero -->
+  <section class="py-24 relative">
+    <div class="glow-orb w-96 h-96 bg-purple-500 -top-20 -left-48"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
+          Meet <span class="gradient-text">The Team</span>
+        </h1>
+        <p class="text-xl text-slate-400">
+          13 specialized AI agents, each with a focused purpose. The Orchestrator delegates tasks to the right specialist, ensuring efficient and traceable workflows.
+        </p>
+      </div>
+      
+      <!-- Role Categories -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <span class="px-4 py-2 bg-slate-800/50 rounded-full text-sm text-slate-300 border border-slate-700">
+          🔄 Coordination
+        </span>
+        <span class="px-4 py-2 bg-slate-800/50 rounded-full text-sm text-slate-300 border border-slate-700">
+          💻 Development
+        </span>
+        <span class="px-4 py-2 bg-slate-800/50 rounded-full text-sm text-slate-300 border border-slate-700">
+          🧪 TDD Phases
+        </span>
+        <span class="px-4 py-2 bg-slate-800/50 rounded-full text-sm text-slate-300 border border-slate-700">
+          🔬 Research
+        </span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Agent Grid -->
+  <section class="pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {agents.map(agent => (
+          <div class={`card bg-gradient-to-br ${getColorClasses(agent.color)} hover:scale-[1.02]`}>
+            <div class="flex items-start gap-4 mb-4">
+              <div class="agent-icon text-2xl flex-shrink-0">
+                <span>{agent.emoji}</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg">{agent.name}</h3>
+                <p class="text-slate-400 text-sm">{agent.tagline}</p>
+              </div>
+            </div>
+            
+            <p class="text-slate-300 mb-4">{agent.description}</p>
+            
+            <div class="flex flex-wrap gap-2">
+              {agent.capabilities.map(cap => (
+                <span class="text-xs bg-slate-900/50 text-slate-400 px-2 py-1 rounded">
+                  {cap}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- How They Work Together -->
+  <section class="py-24 bg-slate-900/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">How They Work Together</h2>
+        <p class="text-slate-400 text-lg">
+          The framework uses a hub-and-spoke model with the Orchestrator at the center.
+        </p>
+      </div>
+      
+      <div class="space-y-6">
+        <div class="card">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">1️⃣</span>
+            <div>
+              <h4 class="font-semibold mb-2">Task Decomposition</h4>
+              <p class="text-slate-400">The Orchestrator receives a high-level goal and breaks it into atomic, testable subtasks with clear acceptance criteria.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">2️⃣</span>
+            <div>
+              <h4 class="font-semibold mb-2">Delegation</h4>
+              <p class="text-slate-400">Each subtask is assigned to the appropriate specialist mode with workspace paths, file patterns, and dependencies defined.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">3️⃣</span>
+            <div>
+              <h4 class="font-semibold mb-2">Execution</h4>
+              <p class="text-slate-400">Specialists execute their tasks within their defined scope. Parallel execution is safe when workspaces don't overlap.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">4️⃣</span>
+            <div>
+              <h4 class="font-semibold mb-2">Boomerang Return</h4>
+              <p class="text-slate-400">Completed tasks return to the Orchestrator with structured payloads containing status, files changed, and next steps.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Deploy Your AI Team?</h2>
+      <p class="text-slate-400 text-lg mb-8">
+        Get started with the Multi-Agent Framework in minutes.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/get-started" class="btn-primary">Get Started</a>
+        <a href="/templates" class="btn-secondary">View Templates</a>
+      </div>
+    </div>
+  </section>
+</Layout>

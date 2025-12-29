@@ -1,0 +1,264 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const agents = [
+  { emoji: "🔄", name: "Orchestrator", desc: "Coordinates workflows and delegates tasks" },
+  { emoji: "🏛️", name: "Architect", desc: "System design and technical decisions" },
+  { emoji: "💻", name: "Code", desc: "Advanced implementation and refactoring" },
+  { emoji: "🐛", name: "Debug", desc: "Diagnostics and bug resolution" },
+  { emoji: "📋", name: "Planner", desc: "Task maps and structured backlogs" },
+  { emoji: "❓", name: "Ask", desc: "Research and clarification" },
+];
+
+const features = [
+  {
+    icon: "🎯",
+    title: "Contract-Driven",
+    desc: "Every agent follows explicit contracts with clear inputs, outputs, and behavioral guarantees."
+  },
+  {
+    icon: "⚡",
+    title: "Parallel Execution",
+    desc: "Safe parallel task execution via workspace and file-pattern isolation."
+  },
+  {
+    icon: "🔁",
+    title: "Boomerang Protocol",
+    desc: "Structured task returns ensure reliable handoffs between agents."
+  },
+  {
+    icon: "🧪",
+    title: "TDD Integration",
+    desc: "Built-in Red-Green-Blue phases for test-driven development workflows."
+  },
+  {
+    icon: "🔌",
+    title: "MCP Tools",
+    desc: "Extensible with powerful Model Context Protocol tools from the Mnehmos ecosystem."
+  },
+  {
+    icon: "🛠️",
+    title: "Multi-IDE Support",
+    desc: "Works with Roo Code, Claude Code, Cursor, GitHub Copilot, and more."
+  },
+];
+
+const tools = [
+  { name: "OODA MCP", desc: "Full computer control and automation", icon: "🖥️" },
+  { name: "Synch MCP", desc: "Persistent memory and context sync", icon: "🧠" },
+  { name: "Index Foundry", desc: "RAG pipelines and vector search", icon: "🔍" },
+  { name: "Trace MCP", desc: "Schema validation and tracing", icon: "📊" },
+  { name: "arXiv MCP", desc: "Research paper access", icon: "📚" },
+  { name: "ChatRPG", desc: "D&D 5e game engine", icon: "🎲" },
+];
+---
+
+<Layout title="Home">
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+    <!-- Background effects -->
+    <div class="glow-orb w-96 h-96 bg-blue-500 top-20 -left-48"></div>
+    <div class="glow-orb w-80 h-80 bg-purple-500 top-40 right-0"></div>
+    <div class="glow-orb w-64 h-64 bg-cyan-500 bottom-20 left-1/3"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-slate-800/50 border border-slate-700 rounded-full px-4 py-2 mb-8">
+          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          <span class="text-sm text-slate-300">Open Source • MIT License</span>
+        </div>
+        
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+          <span class="gradient-text">Multi-Agent</span>
+          <br />
+          AI Framework
+        </h1>
+        
+        <p class="text-xl sm:text-2xl text-slate-400 mb-10 max-w-3xl mx-auto">
+          A structured, production-ready framework for coordinating specialized AI modes using 
+          <span class="text-white">clear contracts</span>, 
+          <span class="text-white">deterministic execution</span>, and 
+          <span class="text-white">traceable task flows</span>.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/get-started" class="btn-primary text-lg">
+            <span>Get Started</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+          <a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework" target="_blank" class="btn-secondary text-lg">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+            <span>View on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Agent Showcase -->
+  <section class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Meet Your AI Team</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+          Specialized agents working together through an Orchestrator that delegates tasks to the right specialist.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {agents.map(agent => (
+          <div class="card text-center">
+            <div class="agent-icon mx-auto mb-3">
+              <span>{agent.emoji}</span>
+            </div>
+            <h3 class="font-semibold mb-1">{agent.name}</h3>
+            <p class="text-slate-400 text-sm">{agent.desc}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div class="text-center mt-8">
+        <a href="/team" class="text-blue-400 hover:text-blue-300 transition inline-flex items-center gap-2">
+          <span>View all 13 agents</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features -->
+  <section class="py-24 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Built for Production</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+          Unlike toy frameworks, this is designed for real-world, complex AI orchestration.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map(feature => (
+          <div class="card">
+            <div class="text-3xl mb-4">{feature.icon}</div>
+            <h3 class="font-semibold text-lg mb-2">{feature.title}</h3>
+            <p class="text-slate-400">{feature.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- MCP Ecosystem -->
+  <section class="py-24 relative">
+    <div class="glow-orb w-80 h-80 bg-cyan-500 -right-20 top-20"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Mnehmos MCP Ecosystem</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+          Extend your agents with powerful Model Context Protocol tools. Each tool integrates seamlessly with the framework.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {tools.map(tool => (
+          <div class="card flex items-start gap-4">
+            <div class="agent-icon flex-shrink-0">
+              <span>{tool.icon}</span>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">{tool.name}</h3>
+              <p class="text-slate-400 text-sm">{tool.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="text-center mt-8">
+        <a href="/tools" class="btn-secondary">
+          <span>Explore All Tools</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Quick Start -->
+  <section class="py-24 bg-slate-900/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get Started in Minutes</h2>
+        <p class="text-slate-400 text-lg">
+          Clone the repo and choose your IDE template.
+        </p>
+      </div>
+      
+      <div class="card bg-slate-950/50">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-sm text-slate-500">Terminal</span>
+          <button onclick="navigator.clipboard.writeText('git clone https://github.com/Mnehmos/mnehmos.multi-agent.framework.git')" class="text-slate-400 hover:text-white transition text-sm">
+            Copy
+          </button>
+        </div>
+        <pre class="text-sm sm:text-base overflow-x-auto"><code class="text-green-400">$ git clone https://github.com/Mnehmos/mnehmos.multi-agent.framework.git</code></pre>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 gap-4 mt-6">
+        <div class="card">
+          <h4 class="font-semibold mb-2">🔧 Roo Code</h4>
+          <p class="text-slate-400 text-sm mb-3">Full multi-mode configuration with custom_modes.yaml</p>
+          <a href="/templates#roo" class="text-blue-400 text-sm hover:text-blue-300 transition">View template →</a>
+        </div>
+        <div class="card">
+          <h4 class="font-semibold mb-2">✨ Claude Code</h4>
+          <p class="text-slate-400 text-sm mb-3">CLAUDE.md system instructions</p>
+          <a href="/templates#claude" class="text-blue-400 text-sm hover:text-blue-300 transition">View template →</a>
+        </div>
+        <div class="card">
+          <h4 class="font-semibold mb-2">🎯 Cursor</h4>
+          <p class="text-slate-400 text-sm mb-3">Cursor rules in MDC format</p>
+          <a href="/templates#cursor" class="text-blue-400 text-sm hover:text-blue-300 transition">View template →</a>
+        </div>
+        <div class="card">
+          <h4 class="font-semibold mb-2">🤖 GitHub Copilot</h4>
+          <p class="text-slate-400 text-sm mb-3">Copilot custom instructions</p>
+          <a href="/templates#copilot" class="text-blue-400 text-sm hover:text-blue-300 transition">View template →</a>
+        </div>
+      </div>
+      
+      <div class="text-center mt-8">
+        <a href="/get-started" class="btn-primary">
+          <span>Full Setup Guide</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6">Ready to Build Better AI Workflows?</h2>
+      <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
+        Join developers using the Multi-Agent Framework to build deterministic, traceable, and production-ready AI systems.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/get-started" class="btn-primary text-lg">Get Started Free</a>
+        <a href="https://vario.automation" target="_blank" class="btn-secondary text-lg">
+          <span>Explore Vario Automation</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
