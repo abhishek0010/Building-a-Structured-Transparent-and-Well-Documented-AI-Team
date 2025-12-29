@@ -1,215 +1,373 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const sections = [
-  {
-    title: "Getting Started",
-    items: [
-      { name: "Quick Start Guide", href: "/get-started", desc: "Set up the framework in 5 minutes" },
-      { name: "Templates", href: "/templates", desc: "IDE-specific configurations" },
-      { name: "MCP Tools", href: "/tools", desc: "Extend with the Mnehmos ecosystem" },
-    ]
-  },
-  {
-    title: "Core Concepts",
-    items: [
-      { name: "Runs and Steps", href: "#runs-steps", desc: "The execution model" },
-      { name: "Boomerang Protocol", href: "#boomerang", desc: "Structured task returns" },
-      { name: "Parallel Safety", href: "#parallel", desc: "Workspace isolation" },
-    ]
-  },
-  {
-    title: "Agent Reference",
-    items: [
-      { name: "Meet the Team", href: "/team", desc: "All 13 agent modes" },
-      { name: "Orchestrator", href: "/team#orchestrator", desc: "Task coordination" },
-      { name: "TDD Phases", href: "/team#red-phase", desc: "Red-Green-Blue workflow" },
-    ]
-  },
-];
 ---
 
-<Layout title="Documentation" description="Complete documentation for the Multi-Agent AI Framework">
-  <section class="py-24 relative">
-    <div class="glow-orb w-96 h-96 bg-purple-500 -top-20 -left-48"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-4 gap-12">
-        <!-- Sidebar -->
-        <aside class="lg:col-span-1">
-          <nav class="sticky top-24 space-y-8">
-            {sections.map(section => (
-              <div>
-                <h4 class="font-semibold text-sm text-slate-500 uppercase tracking-wide mb-3">{section.title}</h4>
-                <ul class="space-y-2">
-                  {section.items.map(item => (
-                    <li>
-                      <a href={item.href} class="text-slate-300 hover:text-white transition text-sm block py-1">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </nav>
-        </aside>
+<Layout title="Documentation">
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="font-display text-4xl lg:text-5xl font-bold text-stone-900 mb-6">
+          Documentation
+        </h1>
+        <p class="text-xl text-stone-600">
+          Core concepts, contracts, and protocols that power the multi-agent framework.
+        </p>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="bg-stone-50 rounded-xl p-6 mb-16">
+        <h2 class="font-display text-lg font-semibold text-stone-900 mb-4">Contents</h2>
+        <ul class="space-y-2 text-stone-600">
+          <li><a href="#runs-and-steps" class="hover:text-copper transition-colors">→ Runs and Steps</a></li>
+          <li><a href="#boomerang-protocol" class="hover:text-copper transition-colors">→ Boomerang Protocol</a></li>
+          <li><a href="#role-contracts" class="hover:text-copper transition-colors">→ Role Contracts</a></li>
+          <li><a href="#tdd-workflow" class="hover:text-copper transition-colors">→ TDD Workflow</a></li>
+          <li><a href="#parallel-execution" class="hover:text-copper transition-colors">→ Parallel Execution</a></li>
+          <li><a href="#task-maps" class="hover:text-copper transition-colors">→ Task Maps</a></li>
+        </ul>
+      </div>
+
+      <!-- Runs and Steps -->
+      <div id="runs-and-steps" class="mb-16 scroll-mt-24">
+        <h2 class="font-display text-2xl font-bold text-stone-900 mb-6">Runs and Steps</h2>
+        <p class="text-stone-600 mb-6">
+          All agents operate as part of a structured runtime. Each unit of work is organized into runs and steps.
+        </p>
         
-        <!-- Main Content -->
-        <main class="lg:col-span-3">
-          <h1 class="text-4xl font-bold mb-6">Documentation</h1>
-          <p class="text-xl text-slate-400 mb-12">
-            Everything you need to understand and use the Multi-Agent AI Framework.
-          </p>
-          
-          <!-- Runs and Steps -->
-          <section id="runs-steps" class="mb-16 scroll-mt-24">
-            <h2 class="text-2xl font-bold mb-4">Runs and Steps</h2>
-            <div class="prose prose-invert max-w-none">
-              <p class="text-slate-300 mb-4">
-                All agents operate as part of a structured runtime, not ad-hoc chat. Every task is executed as a <strong>Run</strong> containing ordered <strong>Steps</strong>.
-              </p>
-              
-              <div class="card mb-6">
-                <h4 class="font-semibold mb-3">Run Structure</h4>
-                <ul class="space-y-2 text-slate-300">
-                  <li><code class="text-blue-400">run_id</code> — Unique identifier for the run</li>
-                  <li><code class="text-blue-400">objective</code> — High-level goal</li>
-                  <li><code class="text-blue-400">status</code> — pending | running | completed | failed | blocked</li>
-                  <li><code class="text-blue-400">steps</code> — Ordered list of steps</li>
-                </ul>
-              </div>
-              
-              <div class="card">
-                <h4 class="font-semibold mb-3">Step Types</h4>
-                <ul class="space-y-2 text-slate-300">
-                  <li><code class="text-green-400">reasoning</code> — Internal reasoning/planning</li>
-                  <li><code class="text-green-400">tool</code> — Tool invocation</li>
-                  <li><code class="text-green-400">delegate</code> — Assign work to another mode</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          
-          <!-- Boomerang Protocol -->
-          <section id="boomerang" class="mb-16 scroll-mt-24">
-            <h2 class="text-2xl font-bold mb-4">Boomerang Protocol</h2>
-            <div class="prose prose-invert max-w-none">
-              <p class="text-slate-300 mb-4">
-                When a subtask completes, it returns to the Orchestrator with a structured payload. This ensures reliable handoffs and traceable workflows.
-              </p>
-              
-              <div class="card bg-slate-950/50">
-                <pre class="text-sm overflow-x-auto"><code class="text-slate-300">{`{
-  "type": "task-completed",
-  "task_id": "auth-login-impl",
-  "run_id": "run-2024-001",
-  "from": "green-phase",
-  "to": "orchestrator",
-  "status": "success",
-  "files_changed": ["src/auth/login.ts"],
-  "tests_run": ["npm test -- auth"],
-  "summary": "Implemented login endpoint with JWT tokens",
-  "notes": "Ready for Blue Phase refactoring"
+        <div class="bg-white rounded-xl border border-stone-200 p-6 mb-6">
+          <h3 class="font-semibold text-stone-900 mb-4">Run Structure</h3>
+          <div class="bg-stone-900 rounded-lg p-4 overflow-x-auto">
+            <pre class="text-stone-300 text-sm"><code>{`{
+  "run_id": "uuid-v7",
+  "objective": "Implement user authentication",
+  "status": "running",  // pending | running | completed | failed | blocked
+  "steps": [
+    { "type": "reasoning", "content": "Analyzing requirements..." },
+    { "type": "tool", "name": "read_file", "params": {...} },
+    { "type": "delegate", "to": "code", "task": {...} }
+  ]
 }`}</code></pre>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-stone-50 rounded-lg p-4">
+            <h4 class="font-semibold text-stone-900 mb-2">reasoning</h4>
+            <p class="text-sm text-stone-600">Internal planning and analysis steps</p>
+          </div>
+          <div class="bg-stone-50 rounded-lg p-4">
+            <h4 class="font-semibold text-stone-900 mb-2">tool</h4>
+            <p class="text-sm text-stone-600">Real tool invocation (file ops, MCP, etc.)</p>
+          </div>
+          <div class="bg-stone-50 rounded-lg p-4">
+            <h4 class="font-semibold text-stone-900 mb-2">delegate</h4>
+            <p class="text-sm text-stone-600">Assign work to another agent mode</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boomerang Protocol -->
+      <div id="boomerang-protocol" class="mb-16 scroll-mt-24">
+        <h2 class="font-display text-2xl font-bold text-stone-900 mb-6">Boomerang Protocol</h2>
+        <p class="text-stone-600 mb-6">
+          Any agent receiving a delegated task returns a structured payload to the orchestrator.
+        </p>
+        
+        <div class="bg-white rounded-xl border border-stone-200 p-6 mb-6">
+          <h3 class="font-semibold text-stone-900 mb-4">Return Payload Schema</h3>
+          <div class="bg-stone-900 rounded-lg p-4 overflow-x-auto">
+            <pre class="text-stone-300 text-sm"><code>{`{
+  "type": "task-completed",  // or escalation | review-approved | review-rejected
+  "task_id": "task-001",
+  "run_id": "run-uuid",
+  "from": "code",
+  "to": "orchestrator",
+  "status": "success",  // success | failed | blocked
+  "files_changed": ["src/auth.ts", "tests/auth.test.ts"],
+  "tests_run": ["npm test -- auth"],
+  "summary": "Implemented JWT authentication with refresh tokens",
+  "notes": "Consider adding rate limiting in future iteration"
+}`}</code></pre>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+          <div class="flex gap-3">
+            <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            <div>
+              <h4 class="font-semibold text-amber-800">Escalation</h4>
+              <p class="text-sm text-amber-700">When blocked, use <code class="bg-amber-100 px-1 rounded">type: "escalation"</code> and describe what blocked you, what you attempted, and concrete options for resolution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role Contracts -->
+      <div id="role-contracts" class="mb-16 scroll-mt-24">
+        <h2 class="font-display text-2xl font-bold text-stone-900 mb-6">Role Contracts</h2>
+        <p class="text-stone-600 mb-6">
+          Each agent role has specific responsibilities and constraints.
+        </p>
+        
+        <div class="space-y-6">
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <h3 class="font-display text-lg font-semibold text-stone-900 mb-4 flex items-center gap-2">
+              <span class="text-xl">🔄</span> Orchestrator
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold text-green-700 mb-2">MUST</h4>
+                <ul class="space-y-1 text-sm text-stone-600">
+                  <li>• Interpret user goals and constraints</li>
+                  <li>• Create and maintain Task Maps</li>
+                  <li>• Decompose work into atomic subtasks</li>
+                  <li>• Assign workspace_path and file_patterns</li>
+                  <li>• Consume boomerang payloads</li>
+                </ul>
               </div>
-              
-              <div class="mt-6">
-                <h4 class="font-semibold mb-3">Payload Types</h4>
-                <div class="grid sm:grid-cols-2 gap-4">
-                  <div class="bg-slate-800/50 rounded-lg p-4">
-                    <code class="text-green-400">task-completed</code>
-                    <p class="text-slate-400 text-sm mt-1">Successful task completion</p>
-                  </div>
-                  <div class="bg-slate-800/50 rounded-lg p-4">
-                    <code class="text-yellow-400">escalation</code>
-                    <p class="text-slate-400 text-sm mt-1">Blocked, needs intervention</p>
-                  </div>
-                  <div class="bg-slate-800/50 rounded-lg p-4">
-                    <code class="text-blue-400">review-approved</code>
-                    <p class="text-slate-400 text-sm mt-1">Review passed</p>
-                  </div>
-                  <div class="bg-slate-800/50 rounded-lg p-4">
-                    <code class="text-red-400">review-rejected</code>
-                    <p class="text-slate-400 text-sm mt-1">Review failed with issues</p>
-                  </div>
-                </div>
+              <div>
+                <h4 class="font-semibold text-red-700 mb-2">MUST NOT</h4>
+                <ul class="space-y-1 text-sm text-stone-600">
+                  <li>• Directly edit project files</li>
+                  <li>• Run destructive commands</li>
+                  <li>• Bypass contracts</li>
+                </ul>
               </div>
             </div>
-          </section>
-          
-          <!-- Parallel Safety -->
-          <section id="parallel" class="mb-16 scroll-mt-24">
-            <h2 class="text-2xl font-bold mb-4">Parallel Safety</h2>
-            <div class="prose prose-invert max-w-none">
-              <p class="text-slate-300 mb-4">
-                Parallelism is allowed only when safe by construction. Tasks are parallel-safe when their workspace paths or file patterns don't overlap.
-              </p>
-              
-              <div class="card mb-6">
-                <h4 class="font-semibold mb-3">Parallel-Safe Example</h4>
-                <div class="bg-slate-900/50 rounded-lg p-4 text-sm">
-                  <p class="text-slate-400 mb-2"># These can run in parallel:</p>
-                  <p class="text-green-400">Task A: workspace_path: "src/auth/", file_patterns: ["*.ts"]</p>
-                  <p class="text-green-400">Task B: workspace_path: "src/api/", file_patterns: ["*.ts"]</p>
-                </div>
+          </div>
+
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <h3 class="font-display text-lg font-semibold text-stone-900 mb-4 flex items-center gap-2">
+              <span class="text-xl">💻</span> Worker (Code, Red/Green/Blue Phase)
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold text-green-700 mb-2">MUST</h4>
+                <ul class="space-y-1 text-sm text-stone-600">
+                  <li>• Operate within assigned workspace_path</li>
+                  <li>• Respect file_patterns constraints</li>
+                  <li>• Implement exactly the subtask objective</li>
+                  <li>• Add/update tests when appropriate</li>
+                  <li>• Return boomerang payloads</li>
+                </ul>
               </div>
-              
-              <div class="card">
-                <h4 class="font-semibold mb-3">Conflicting Example</h4>
-                <div class="bg-slate-900/50 rounded-lg p-4 text-sm">
-                  <p class="text-slate-400 mb-2"># These MUST be serialized:</p>
-                  <p class="text-red-400">Task A: workspace_path: "src/", file_patterns: ["config.ts"]</p>
-                  <p class="text-red-400">Task B: workspace_path: "src/", file_patterns: ["*.ts"]</p>
-                </div>
-              </div>
-              
-              <div class="mt-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
-                <p class="text-yellow-400 text-sm">
-                  <strong>Rule:</strong> If any doubt exists, treat tasks as conflicting. The Orchestrator must serialize them or rescope to eliminate conflicts.
-                </p>
+              <div>
+                <h4 class="font-semibold text-red-700 mb-2">MUST NOT</h4>
+                <ul class="space-y-1 text-sm text-stone-600">
+                  <li>• Modify files outside scope</li>
+                  <li>• Ignore acceptance criteria</li>
+                  <li>• Silently expand scope</li>
+                </ul>
               </div>
             </div>
-          </section>
-          
-          <!-- Quick Links -->
-          <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-6">Quick Links</h2>
-            <div class="grid sm:grid-cols-2 gap-4">
-              <a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework" target="_blank" class="card hover:border-blue-500/50 group">
-                <div class="flex items-center gap-3 mb-2">
-                  <svg class="w-6 h-6 text-slate-400 group-hover:text-white transition" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-                  <span class="font-semibold">GitHub Repository</span>
-                </div>
-                <p class="text-slate-400 text-sm">Source code, issues, and contributions</p>
-              </a>
-              
-              <a href="https://vario.automation" target="_blank" class="card hover:border-blue-500/50 group">
-                <div class="flex items-center gap-3 mb-2">
-                  <span class="text-xl">🚀</span>
-                  <span class="font-semibold">Vario Automation</span>
-                </div>
-                <p class="text-slate-400 text-sm">Professional automation services</p>
-              </a>
-              
-              <a href="/templates" class="card hover:border-blue-500/50 group">
-                <div class="flex items-center gap-3 mb-2">
-                  <span class="text-xl">📄</span>
-                  <span class="font-semibold">Templates</span>
-                </div>
-                <p class="text-slate-400 text-sm">IDE-specific configurations</p>
-              </a>
-              
-              <a href="/tools" class="card hover:border-blue-500/50 group">
-                <div class="flex items-center gap-3 mb-2">
-                  <span class="text-xl">🔌</span>
-                  <span class="font-semibold">MCP Tools</span>
-                </div>
-                <p class="text-slate-400 text-sm">Extend with powerful integrations</p>
-              </a>
+          </div>
+
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <h3 class="font-display text-lg font-semibold text-stone-900 mb-4 flex items-center gap-2">
+              <span class="text-xl">👁️</span> Reviewer
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold text-green-700 mb-2">MUST</h4>
+                <ul class="space-y-1 text-sm text-stone-600">
+                  <li>• Be read-only</li>
+                  <li>• Review only relevant changes</li>
+                  <li>• Return review-approved or review-rejected</li>
+                  <li>• Provide structured feedback</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-red-700 mb-2">MUST NOT</h4>
+                <ul class="space-y-1 text-sm text-stone-600">
+                  <li>• Edit files</li>
+                  <li>• Provide vague approvals</li>
+                </ul>
+              </div>
             </div>
-          </section>
-        </main>
+          </div>
+        </div>
+      </div>
+
+      <!-- TDD Workflow -->
+      <div id="tdd-workflow" class="mb-16 scroll-mt-24">
+        <h2 class="font-display text-2xl font-bold text-stone-900 mb-6">TDD Workflow</h2>
+        <p class="text-stone-600 mb-6">
+          The framework enforces Test-Driven Development through three distinct phases:
+        </p>
+        
+        <div class="space-y-6">
+          <div class="bg-red-50 rounded-xl p-6 border border-red-100">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-2xl">🔴</div>
+              <div>
+                <h3 class="font-display text-lg font-semibold text-stone-900">Red Phase</h3>
+                <p class="text-sm text-red-700">Tests must fail with clear messages</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-stone-600">
+              <li>• Write test specifications before implementation</li>
+              <li>• Define expected behavior through assertions</li>
+              <li>• Create test fixtures and mocks</li>
+              <li>• Verify tests fail for the right reasons</li>
+            </ul>
+          </div>
+
+          <div class="bg-green-50 rounded-xl p-6 border border-green-100">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-2xl">🟢</div>
+              <div>
+                <h3 class="font-display text-lg font-semibold text-stone-900">Green Phase</h3>
+                <p class="text-sm text-green-700">Write minimal code focused on correctness</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-stone-600">
+              <li>• Implement just enough to pass tests</li>
+              <li>• No premature optimization</li>
+              <li>• All red phase tests must turn green</li>
+              <li>• Quick iterations toward passing state</li>
+            </ul>
+          </div>
+
+          <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-2xl">🔵</div>
+              <div>
+                <h3 class="font-display text-lg font-semibold text-stone-900">Blue Phase</h3>
+                <p class="text-sm text-blue-700">Improve quality while maintaining passing tests</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-stone-600">
+              <li>• Refactor for readability and maintainability</li>
+              <li>• Optimize performance where needed</li>
+              <li>• Polish output formatting</li>
+              <li>• Tests must remain green throughout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parallel Execution -->
+      <div id="parallel-execution" class="mb-16 scroll-mt-24">
+        <h2 class="font-display text-2xl font-bold text-stone-900 mb-6">Parallel Execution</h2>
+        <p class="text-stone-600 mb-6">
+          Parallelism is allowed only when safe by construction through workspace and file isolation.
+        </p>
+        
+        <div class="bg-white rounded-xl border border-stone-200 p-6 mb-6">
+          <h3 class="font-semibold text-stone-900 mb-4">Safety Rules</h3>
+          <ul class="space-y-3 text-stone-600">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span><strong>Non-overlapping workspace_path:</strong> Tasks with different workspace roots can run in parallel</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span><strong>Disjoint file_patterns:</strong> Tasks with non-conflicting file patterns in the same workspace can run in parallel</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-red-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+              </svg>
+              <span><strong>Any doubt = conflict:</strong> Serialize or rescope to eliminate potential race conditions</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-stone-900 rounded-xl p-6 overflow-x-auto">
+          <pre class="text-stone-300 text-sm"><code>{`// Example: Parallel-safe task assignment
+{
+  "tasks": [
+    {
+      "task_id": "frontend-auth",
+      "mode": "code",
+      "workspace_path": "src/components/",
+      "file_patterns": ["Auth*.tsx", "Login*.tsx"]
+    },
+    {
+      "task_id": "backend-auth", 
+      "mode": "code",
+      "workspace_path": "src/api/",
+      "file_patterns": ["auth*.ts", "jwt*.ts"]
+    }
+  ]
+  // These can run in parallel - different workspace_path values
+}`}</code></pre>
+        </div>
+      </div>
+
+      <!-- Task Maps -->
+      <div id="task-maps" class="mb-16 scroll-mt-24">
+        <h2 class="font-display text-2xl font-bold text-stone-900 mb-6">Task Maps</h2>
+        <p class="text-stone-600 mb-6">
+          Planner generates Task Maps that define the complete scope of work with dependencies.
+        </p>
+        
+        <div class="bg-white rounded-xl border border-stone-200 p-6 mb-6">
+          <h3 class="font-semibold text-stone-900 mb-4">Task Map Structure</h3>
+          <div class="bg-stone-900 rounded-lg p-4 overflow-x-auto">
+            <pre class="text-stone-300 text-sm"><code>{`{
+  "objective": "Implement user authentication system",
+  "tasks": [
+    {
+      "task_id": "auth-001",
+      "title": "Design auth schema",
+      "mode": "architect",
+      "deps": [],
+      "acceptance_criteria": [
+        "ADR documenting auth approach",
+        "Database schema for users table",
+        "API contract for auth endpoints"
+      ]
+    },
+    {
+      "task_id": "auth-002", 
+      "title": "Write auth tests",
+      "mode": "red-phase",
+      "deps": ["auth-001"],
+      "workspace_path": "tests/",
+      "file_patterns": ["auth.test.ts"]
+    },
+    {
+      "task_id": "auth-003",
+      "title": "Implement auth",
+      "mode": "green-phase", 
+      "deps": ["auth-002"],
+      "workspace_path": "src/",
+      "file_patterns": ["auth/*.ts"]
+    }
+  ]
+}`}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <div class="bg-stone-900 rounded-2xl p-8 text-stone-50">
+        <h2 class="font-display text-2xl font-bold mb-6">Additional Resources</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework" class="bg-stone-800 rounded-xl p-6 hover:bg-stone-700 transition-colors">
+            <h3 class="font-semibold mb-2">GitHub Repository</h3>
+            <p class="text-sm text-stone-400">Full source code, templates, and examples</p>
+          </a>
+          <a href="/mnehmos.multi-agent.framework/team" class="bg-stone-800 rounded-xl p-6 hover:bg-stone-700 transition-colors">
+            <h3 class="font-semibold mb-2">Agent Reference</h3>
+            <p class="text-sm text-stone-400">Detailed capabilities for each agent</p>
+          </a>
+          <a href="/mnehmos.multi-agent.framework/tools" class="bg-stone-800 rounded-xl p-6 hover:bg-stone-700 transition-colors">
+            <h3 class="font-semibold mb-2">MCP Tools</h3>
+            <p class="text-sm text-stone-400">Extend capabilities with MCP servers</p>
+          </a>
+          <a href="/mnehmos.multi-agent.framework/templates" class="bg-stone-800 rounded-xl p-6 hover:bg-stone-700 transition-colors">
+            <h3 class="font-semibold mb-2">IDE Templates</h3>
+            <p class="text-sm text-stone-400">Pre-configured setups for your editor</p>
+          </a>
+        </div>
       </div>
     </div>
   </section>

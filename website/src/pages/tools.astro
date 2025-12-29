@@ -4,205 +4,247 @@ import Layout from '../layouts/Layout.astro';
 const tools = [
   {
     name: "OODA MCP",
-    icon: "🖥️",
-    tagline: "Full Computer Control",
-    description: "Execute shell commands, manage files, control keyboard/mouse, capture screenshots, manage windows, and automate browser interactions. The ultimate automation tool for AI agents.",
+    emoji: "🔄",
+    repo: "mnehmos.ooda.mcp",
+    color: "amber",
+    description: "Computer automation through Model Context Protocol. Execute commands, manage files, control browsers, and interact with the system.",
     features: [
       "Shell command execution",
-      "File system operations", 
-      "Keyboard & mouse control",
-      "Screenshot capture",
-      "Window management",
-      "Browser automation",
-      "Process management",
-      "Clipboard access"
+      "File system operations (read, write, copy, move, delete)",
+      "Browser automation (Puppeteer/Playwright)",
+      "Screenshot capture and screen interaction",
+      "Keyboard and mouse automation",
+      "Process and window management",
+      "Clipboard operations",
+      "CRUD data storage"
     ],
-    github: "https://github.com/Mnehmos/mnehmos.ooda.mcp",
-    color: "blue"
+    useCases: [
+      "Automate repetitive system tasks",
+      "Web scraping and browser testing",
+      "File batch processing",
+      "Desktop automation workflows"
+    ]
   },
   {
     name: "Synch MCP",
-    icon: "🧠",
-    tagline: "Persistent Memory & Context",
-    description: "Maintain context across sessions with filing cabinet indexing, spatial maps, bug tracking, and agent handoff protocols. Essential for long-running projects.",
+    emoji: "🔗",
+    repo: "mnehmos.synch.mcp",
+    color: "blue",
+    description: "Agent coordination and context persistence. Enable multi-agent handoffs, spatial navigation, and bug tracking.",
     features: [
       "Active context management",
-      "Filing cabinet indexing",
-      "Spatial maps (PC as Rooms)",
-      "Bug logging & tracking",
-      "Resource locking",
-      "Context event handoffs",
-      "Project-scoped memory"
+      "Filing cabinet for file indexing",
+      "Memory search across projects",
+      "Spatial room mapping",
+      "Bug logging and tracking",
+      "Lock management for concurrency",
+      "Context event emission",
+      "Agent handoff protocol"
     ],
-    github: "https://github.com/Mnehmos/mnehmos.synch.mcp",
-    color: "purple"
+    useCases: [
+      "Multi-agent task coordination",
+      "Context preservation across sessions",
+      "Bug tracking during development",
+      "Workspace navigation"
+    ]
   },
   {
     name: "Index Foundry MCP",
-    icon: "🔍",
-    tagline: "RAG Pipeline Builder",
-    description: "Build production-ready RAG (Retrieval Augmented Generation) pipelines. Connect sources, extract content, chunk, embed, and deploy searchable APIs.",
+    emoji: "📚",
+    repo: "mnehmos.index-foundry.mcp",
+    color: "green",
+    description: "Build RAG pipelines and searchable knowledge bases. Connect URLs, PDFs, folders and create semantic search APIs.",
     features: [
-      "Multi-source ingestion",
-      "PDF/HTML extraction",
-      "Smart chunking strategies",
-      "OpenAI embeddings",
-      "Vector search",
-      "Hybrid search (keyword + semantic)",
-      "Self-hosted deployment"
+      "URL and sitemap crawling",
+      "PDF text extraction",
+      "Folder ingestion with glob patterns",
+      "Recursive chunking strategies",
+      "OpenAI embedding generation",
+      "Vector database upsert",
+      "Hybrid search (semantic + keyword)",
+      "Deployable search servers"
     ],
-    github: "https://github.com/Mnehmos/mnehmos.index-foundry.mcp",
-    color: "cyan"
-  },
-  {
-    name: "Trace MCP",
-    icon: "📊",
-    tagline: "Schema Validation & Tracing",
-    description: "Extract MCP tool definitions from server source, trace client usage, compare schemas, and scaffold code with contract verification.",
-    features: [
-      "Schema extraction",
-      "Usage tracing",
-      "Contract comparison",
-      "Consumer scaffolding",
-      "Producer scaffolding",
-      "Watch mode",
-      "Cross-reference comments"
-    ],
-    github: "https://github.com/Mnehmos/mnehmos.trace.mcp",
-    color: "orange"
+    useCases: [
+      "Build documentation search",
+      "Create knowledge bases",
+      "Index code repositories",
+      "Deploy RAG APIs"
+    ]
   },
   {
     name: "arXiv MCP",
-    icon: "📚",
-    tagline: "Research Paper Access",
-    description: "Search and retrieve academic papers from arXiv. Get paper metadata, download PDFs, and extract full text content for research tasks.",
+    emoji: "📄",
+    repo: "mnehmos.arxiv.mcp",
+    color: "purple",
+    description: "Search and retrieve academic papers from arXiv. Access cutting-edge research for AI-assisted development.",
     features: [
-      "Paper search",
-      "Category browsing",
-      "Metadata retrieval",
-      "PDF content extraction",
-      "Author search",
-      "Citation access"
+      "Search by title, author, abstract",
+      "Category-based search",
+      "Paper metadata retrieval",
+      "Full paper content extraction",
+      "Sort by relevance or date",
+      "Pagination support"
     ],
-    github: "https://github.com/Mnehmos/mnehmos.arxiv.mcp",
-    color: "green"
+    useCases: [
+      "Research state-of-the-art techniques",
+      "Find implementation references",
+      "Literature reviews",
+      "Technical deep-dives"
+    ]
+  },
+  {
+    name: "Trace MCP",
+    emoji: "🔍",
+    repo: "mnehmos.trace.mcp",
+    color: "red",
+    description: "Schema extraction and contract validation for MCP tools. Trace producer/consumer relationships and generate scaffolds.",
+    features: [
+      "Extract tool schemas from source",
+      "Trace consumer usage patterns",
+      "Compare producer/consumer contracts",
+      "Generate consumer scaffolds",
+      "Generate producer stubs",
+      "Add contract comments",
+      "Watch mode for live validation",
+      "Project initialization"
+    ],
+    useCases: [
+      "MCP tool development",
+      "API contract validation",
+      "Code generation",
+      "Schema documentation"
+    ]
   },
   {
     name: "ChatRPG Game",
-    icon: "🎲",
-    tagline: "D&D 5e Game Engine",
-    description: "Full D&D 5e combat and character management system. Create characters, run encounters, manage conditions, and roll dice with complete rules support.",
+    emoji: "🎮",
+    repo: "mnehmos.chatrpg.game",
+    color: "copper",
+    description: "D&D 5e game mechanics through MCP. Roll dice, manage characters, run combat encounters, and track campaigns.",
     features: [
-      "Character creation & management",
-      "Combat encounters",
-      "Dice rolling with advantage",
+      "Dice rolling with all notations",
+      "Character creation and management",
+      "Combat encounter system",
       "Spell slot tracking",
       "Condition management",
-      "Battlefield visualization",
-      "Death saves & rests"
+      "Area of effect calculations",
+      "Line of sight checking",
+      "Party and inventory management"
     ],
-    github: "https://github.com/Mnehmos/mnehmos.chatrpg.game",
-    color: "red"
-  },
+    useCases: [
+      "AI-powered D&D sessions",
+      "Character building assistance",
+      "Combat automation",
+      "Campaign management"
+    ]
+  }
 ];
-
-const getColorClasses = (color: string) => {
-  const colors: Record<string, { bg: string, border: string, icon: string }> = {
-    blue: { bg: "from-blue-500/10 to-blue-600/5", border: "border-blue-500/30 hover:border-blue-500/50", icon: "from-blue-500 to-blue-600" },
-    purple: { bg: "from-purple-500/10 to-purple-600/5", border: "border-purple-500/30 hover:border-purple-500/50", icon: "from-purple-500 to-purple-600" },
-    cyan: { bg: "from-cyan-500/10 to-cyan-600/5", border: "border-cyan-500/30 hover:border-cyan-500/50", icon: "from-cyan-500 to-cyan-600" },
-    orange: { bg: "from-orange-500/10 to-orange-600/5", border: "border-orange-500/30 hover:border-orange-500/50", icon: "from-orange-500 to-orange-600" },
-    green: { bg: "from-green-500/10 to-green-600/5", border: "border-green-500/30 hover:border-green-500/50", icon: "from-green-500 to-green-600" },
-    red: { bg: "from-red-500/10 to-red-600/5", border: "border-red-500/30 hover:border-red-500/50", icon: "from-red-500 to-red-600" },
-  };
-  return colors[color] || colors.blue;
-};
 ---
 
-<Layout title="MCP Tools" description="Extend your AI agents with powerful Model Context Protocol tools from the Mnehmos ecosystem">
-  <!-- Hero -->
-  <section class="py-24 relative">
-    <div class="glow-orb w-96 h-96 bg-cyan-500 -top-20 -right-48"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="inline-flex items-center gap-2 bg-slate-800/50 border border-slate-700 rounded-full px-4 py-2 mb-6">
-          <span class="text-sm text-slate-300">Model Context Protocol</span>
-        </div>
-        
-        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
-          <span class="gradient-text">Mnehmos</span> MCP Ecosystem
+<Layout title="MCP Tools">
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="font-display text-4xl lg:text-5xl font-bold text-stone-900 mb-6">
+          MCP Ecosystem Tools
         </h1>
-        <p class="text-xl text-slate-400">
-          Powerful tools that extend your AI agents with computer control, persistent memory, RAG pipelines, research access, and more.
+        <p class="text-xl text-stone-600 max-w-3xl mx-auto">
+          Model Context Protocol servers that extend AI agent capabilities. 
+          Each tool provides specialized functionality for AI-assisted development.
         </p>
       </div>
-    </div>
-  </section>
-  
-  <!-- Tools Grid -->
-  <section class="pb-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-8">
-        {tools.map(tool => {
-          const colors = getColorClasses(tool.color);
-          return (
-            <div class={`rounded-2xl bg-gradient-to-br ${colors.bg} border ${colors.border} p-6 sm:p-8 transition-all duration-300`}>
-              <div class="flex flex-col lg:flex-row lg:items-start gap-6">
-                <div class="flex-shrink-0">
-                  <div class={`w-16 h-16 rounded-xl bg-gradient-to-br ${colors.icon} flex items-center justify-center text-3xl`}>
-                    {tool.icon}
-                  </div>
+
+      <div class="space-y-12">
+        {tools.map(tool => (
+          <div class="bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-copper transition-colors">
+            <div class="p-8">
+              <div class="flex flex-col md:flex-row md:items-start gap-6">
+                <div class={`w-16 h-16 rounded-xl flex items-center justify-center text-3xl shrink-0 ${
+                  tool.color === 'amber' ? 'bg-amber-100' :
+                  tool.color === 'blue' ? 'bg-blue-100' :
+                  tool.color === 'green' ? 'bg-green-100' :
+                  tool.color === 'purple' ? 'bg-purple-100' :
+                  tool.color === 'red' ? 'bg-red-100' :
+                  'bg-orange-100'
+                }`}>
+                  {tool.emoji}
                 </div>
-                
-                <div class="flex-grow">
-                  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
-                    <h3 class="text-2xl font-bold">{tool.name}</h3>
-                    <span class="text-slate-400">•</span>
-                    <span class="text-slate-400">{tool.tagline}</span>
+                <div class="flex-1">
+                  <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                    <h2 class="font-display text-2xl font-bold text-stone-900">{tool.name}</h2>
+                    <a 
+                      href={`https://github.com/Mnehmos/${tool.repo}`}
+                      class="inline-flex items-center gap-2 text-sm text-stone-500 hover:text-copper transition-colors"
+                    >
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                      {tool.repo}
+                    </a>
                   </div>
+                  <p class="text-stone-600 mb-6">{tool.description}</p>
                   
-                  <p class="text-slate-300 mb-6 max-w-3xl">{tool.description}</p>
-                  
-                  <div class="flex flex-wrap gap-2 mb-6">
-                    {tool.features.map(feature => (
-                      <span class="text-sm bg-slate-900/50 text-slate-300 px-3 py-1 rounded-full border border-slate-700/50">
-                        {feature}
-                      </span>
-                    ))}
+                  <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h3 class="font-semibold text-stone-900 mb-3">Features</h3>
+                      <ul class="space-y-2">
+                        {tool.features.map(feature => (
+                          <li class="flex items-start gap-2 text-sm text-stone-600">
+                            <svg class="w-4 h-4 text-copper shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-stone-900 mb-3">Use Cases</h3>
+                      <ul class="space-y-2">
+                        {tool.useCases.map(useCase => (
+                          <li class="flex items-start gap-2 text-sm text-stone-600">
+                            <svg class="w-4 h-4 text-stone-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            {useCase}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  
-                  <a href={tool.github} target="_blank" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-                    <span>View on GitHub</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                  </a>
                 </div>
               </div>
             </div>
-          );
-        })}
+            <div class="bg-stone-50 px-8 py-4 border-t border-stone-100">
+              <a 
+                href={`https://github.com/Mnehmos/${tool.repo}`}
+                class="inline-flex items-center gap-2 text-copper hover:text-copper-light font-medium transition-colors"
+              >
+                View on GitHub
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
-  
-  <!-- Integration -->
-  <section class="py-24 bg-slate-900/50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold mb-4">Easy Integration</h2>
-        <p class="text-slate-400 text-lg">
-          Add MCP tools to your agent configuration in seconds.
-        </p>
-      </div>
+
+  <!-- Installation Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="font-display text-3xl font-bold text-stone-900 text-center mb-4">
+        Quick Installation
+      </h2>
+      <p class="text-stone-600 text-center max-w-2xl mx-auto mb-12">
+        Add MCP tools to your Claude Desktop or Roo Code configuration.
+      </p>
       
-      <div class="card bg-slate-950/50">
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-sm text-slate-500">mcp_settings.json</span>
-        </div>
-        <pre class="text-sm overflow-x-auto"><code class="text-slate-300">{`{
+      <div class="bg-stone-900 rounded-xl p-6 overflow-x-auto">
+        <pre class="text-stone-300 text-sm"><code>{`// claude_desktop_config.json or roo settings
+{
   "mcpServers": {
     "ooda": {
       "command": "node",
@@ -218,36 +260,6 @@ const getColorClasses = (color: string) => {
     }
   }
 }`}</code></pre>
-      </div>
-      
-      <div class="text-center mt-8">
-        <a href="/get-started" class="btn-primary">
-          <span>Full Setup Guide</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-  
-  <!-- CTA -->
-  <section class="py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold mb-6">Build Your Own MCP Tools</h2>
-      <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
-        The MCP ecosystem is open and extensible. Create custom tools that integrate seamlessly with the Multi-Agent Framework.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://modelcontextprotocol.io" target="_blank" class="btn-secondary">
-          <span>Learn about MCP</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-          </svg>
-        </a>
-        <a href="https://vario.automation" target="_blank" class="btn-primary">
-          <span>Explore Vario Automation</span>
-        </a>
       </div>
     </div>
   </section>

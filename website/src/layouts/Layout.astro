@@ -1,127 +1,159 @@
 ---
-import '../styles/global.css';
-
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "A structured, production-ready multi-agent framework for coordinating specialized AI modes." } = Astro.props;
+const { title, description = "A structured, production-ready multi-agent framework for coordinating specialized AI modes using clear contracts, deterministic execution, and traceable task flows." } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <title>{title} | Multi-Agent AI Framework</title>
+    <link rel="icon" type="image/svg+xml" href="/mnehmos.multi-agent.framework/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Multi-Agent Framework</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="min-h-screen">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-700/50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a href="/" class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <span class="text-xl">🤖</span>
-            </div>
-            <span class="font-bold text-lg hidden sm:block">Multi-Agent Framework</span>
-          </a>
-          
-          <div class="hidden md:flex items-center gap-8">
-            <a href="/" class="text-slate-300 hover:text-white transition">Home</a>
-            <a href="/team" class="text-slate-300 hover:text-white transition">Meet the Team</a>
-            <a href="/tools" class="text-slate-300 hover:text-white transition">MCP Tools</a>
-            <a href="/templates" class="text-slate-300 hover:text-white transition">Templates</a>
-            <a href="/docs" class="text-slate-300 hover:text-white transition">Docs</a>
-          </div>
-          
-          <div class="flex items-center gap-4">
-            <a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework" target="_blank" class="text-slate-300 hover:text-white transition">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-            </a>
-            <a href="/get-started" class="btn-primary text-sm">Get Started</a>
-          </div>
-          
-          <!-- Mobile menu button -->
-          <button id="mobile-menu-btn" class="md:hidden text-slate-300">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
+  <body class="bg-stone-50 text-stone-800 antialiased">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/mnehmos.multi-agent.framework/" class="font-display font-bold text-xl text-stone-900 hover:text-copper transition-colors">
+          mnehmos<span class="text-copper">.multi-agent</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="/mnehmos.multi-agent.framework/team" class="text-stone-600 hover:text-stone-900 transition-colors">Team</a>
+          <a href="/mnehmos.multi-agent.framework/tools" class="text-copper hover:text-copper-light transition-colors font-medium">Tools</a>
+          <a href="/mnehmos.multi-agent.framework/templates" class="text-stone-600 hover:text-stone-900 transition-colors">Templates</a>
+          <a href="/mnehmos.multi-agent.framework/docs" class="text-stone-600 hover:text-stone-900 transition-colors">Docs</a>
         </div>
+        <a href="/mnehmos.multi-agent.framework/get-started" class="hidden md:inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-4 py-2 rounded-lg font-medium hover:bg-stone-800 transition-colors">
+          Get Started
+        </a>
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-stone-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
       </div>
-      
       <!-- Mobile menu -->
-      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-700/50 bg-slate-900/95">
-        <div class="px-4 py-4 space-y-3">
-          <a href="/" class="block text-slate-300 hover:text-white transition">Home</a>
-          <a href="/team" class="block text-slate-300 hover:text-white transition">Meet the Team</a>
-          <a href="/tools" class="block text-slate-300 hover:text-white transition">MCP Tools</a>
-          <a href="/templates" class="block text-slate-300 hover:text-white transition">Templates</a>
-          <a href="/docs" class="block text-slate-300 hover:text-white transition">Docs</a>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-stone-50">
+        <div class="px-6 py-4 space-y-4">
+          <a href="/mnehmos.multi-agent.framework/team" class="block text-stone-600 hover:text-stone-900">Team</a>
+          <a href="/mnehmos.multi-agent.framework/tools" class="block text-copper hover:text-copper-light font-medium">Tools</a>
+          <a href="/mnehmos.multi-agent.framework/templates" class="block text-stone-600 hover:text-stone-900">Templates</a>
+          <a href="/mnehmos.multi-agent.framework/docs" class="block text-stone-600 hover:text-stone-900">Docs</a>
+          <a href="/mnehmos.multi-agent.framework/get-started" class="block bg-stone-900 text-stone-50 px-4 py-2 rounded-lg font-medium text-center">Get Started</a>
         </div>
       </div>
     </nav>
     
-    <!-- Main Content -->
-    <main class="pt-16">
+    <main class="pt-20">
       <slot />
     </main>
     
-    <!-- Footer -->
-    <footer class="border-t border-slate-700/50 mt-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div class="col-span-1 md:col-span-2">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <span class="text-xl">🤖</span>
-              </div>
-              <span class="font-bold text-lg">Multi-Agent Framework</span>
-            </div>
-            <p class="text-slate-400 mb-4 max-w-md">
-              A structured, production-ready multi-agent framework for coordinating specialized AI modes using clear contracts, deterministic execution, and traceable task flows.
+    <footer class="bg-stone-900 text-stone-300 py-16 mt-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-12">
+          <div class="md:col-span-2">
+            <span class="font-display font-bold text-2xl text-stone-50">mnehmos<span class="text-copper">.multi-agent</span></span>
+            <p class="mt-4 text-stone-400 max-w-md">
+              A structured, production-ready multi-agent framework for coordinating specialized AI modes. Part of the Mnehmos ecosystem of AI development tools.
             </p>
-            <p class="text-slate-500 text-sm">
-              Built by <a href="https://vario.automation" target="_blank" class="text-blue-400 hover:text-blue-300 transition">Vario Automation</a>
-            </p>
+            <a href="https://mnehmos.github.io/vario-automation/" class="inline-block mt-4 text-copper hover:text-copper-light transition-colors">
+              Built by Vario Automation →
+            </a>
           </div>
-          
           <div>
-            <h4 class="font-semibold mb-4">Resources</h4>
-            <ul class="space-y-2 text-slate-400">
-              <li><a href="/docs" class="hover:text-white transition">Documentation</a></li>
-              <li><a href="/templates" class="hover:text-white transition">Templates</a></li>
-              <li><a href="/tools" class="hover:text-white transition">MCP Tools</a></li>
-              <li><a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework" target="_blank" class="hover:text-white transition">GitHub</a></li>
+            <h4 class="font-semibold text-stone-50 mb-4">Framework</h4>
+            <ul class="space-y-2 text-stone-400">
+              <li><a href="/mnehmos.multi-agent.framework/team" class="hover:text-stone-200 transition-colors">Meet the Team</a></li>
+              <li><a href="/mnehmos.multi-agent.framework/templates" class="hover:text-stone-200 transition-colors">Templates</a></li>
+              <li><a href="/mnehmos.multi-agent.framework/docs" class="hover:text-stone-200 transition-colors">Documentation</a></li>
             </ul>
           </div>
-          
           <div>
-            <h4 class="font-semibold mb-4">Connect</h4>
-            <ul class="space-y-2 text-slate-400">
-              <li><a href="https://vario.automation" target="_blank" class="hover:text-white transition">Vario Automation</a></li>
-              <li><a href="https://github.com/Mnehmos" target="_blank" class="hover:text-white transition">GitHub</a></li>
+            <h4 class="font-semibold text-stone-50 mb-4">Connect</h4>
+            <ul class="space-y-2 text-stone-400">
+              <li><a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework" class="hover:text-stone-200 transition-colors">GitHub</a></li>
+              <li><a href="/mnehmos.multi-agent.framework/tools" class="hover:text-stone-200 transition-colors">MCP Tools</a></li>
             </ul>
           </div>
         </div>
-        
-        <div class="border-t border-slate-700/50 mt-8 pt-8 text-center text-slate-500 text-sm">
-          <p>MIT License • Open source for professional and commercial use</p>
+        <div class="mt-12 pt-8 border-t border-stone-800 text-stone-500 text-sm">
+          <p>© 2024 Mnehmos Multi-Agent Framework. MIT License.</p>
         </div>
       </div>
     </footer>
     
     <script>
-      document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
-        document.getElementById('mobile-menu')?.classList.toggle('hidden');
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      menuBtn?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden');
       });
     </script>
   </body>
 </html>
+
+<style is:global>
+  @import '../styles/global.css';
+  
+  :root {
+    --copper: #B87333;
+    --copper-light: #D4956A;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .text-copper {
+    color: var(--copper);
+  }
+  
+  .bg-copper {
+    background-color: var(--copper);
+  }
+  
+  .border-copper {
+    border-color: var(--copper);
+  }
+  
+  .hover\:text-copper:hover {
+    color: var(--copper);
+  }
+  
+  .hover\:text-copper-light:hover {
+    color: var(--copper-light);
+  }
+  
+  .hover\:bg-copper:hover {
+    background-color: var(--copper);
+  }
+  
+  .hover\:border-copper:hover {
+    border-color: var(--copper);
+  }
+  
+  .focus\:ring-copper:focus {
+    --tw-ring-color: var(--copper);
+  }
+</style>

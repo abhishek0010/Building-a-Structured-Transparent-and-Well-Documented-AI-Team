@@ -2,302 +2,247 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Get Started" description="Get up and running with the Multi-Agent Framework in 5 minutes">
-  <!-- Hero -->
-  <section class="py-24 relative">
-    <div class="glow-orb w-96 h-96 bg-green-500 -top-20 -right-48"></div>
-    
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<Layout title="Get Started">
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-4 py-2 mb-6">
-          <span class="text-sm text-green-400">⚡ 5 minute setup</span>
-        </div>
-        
-        <h1 class="text-4xl sm:text-5xl font-bold mb-6">
-          <span class="gradient-text">Quick Start</span> Guide
+        <h1 class="font-display text-4xl lg:text-5xl font-bold text-stone-900 mb-6">
+          Get Started
         </h1>
-        <p class="text-xl text-slate-400">
-          Clone the repo, choose your IDE, and start building with multi-agent workflows.
+        <p class="text-xl text-stone-600">
+          Set up the multi-agent framework in your development environment in minutes.
         </p>
       </div>
-    </div>
-  </section>
-  
-  <!-- Steps -->
-  <section class="pb-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
       <!-- Step 1 -->
-      <div class="mb-12">
+      <div class="mb-16">
         <div class="flex items-center gap-4 mb-6">
-          <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center font-bold">1</div>
-          <h2 class="text-2xl font-bold">Clone the Repository</h2>
+          <div class="w-10 h-10 bg-copper text-white rounded-full flex items-center justify-center font-display font-bold text-lg">1</div>
+          <h2 class="font-display text-2xl font-bold text-stone-900">Clone the Repository</h2>
         </div>
-        
-        <div class="card bg-slate-950/50">
-          <pre class="text-sm sm:text-base overflow-x-auto"><code class="text-green-400">$ git clone https://github.com/Mnehmos/mnehmos.multi-agent.framework.git
-$ cd mnehmos.multi-agent.framework</code></pre>
+        <div class="bg-stone-900 rounded-xl p-6 overflow-x-auto">
+          <pre class="text-stone-300 text-sm"><code>git clone https://github.com/Mnehmos/mnehmos.multi-agent.framework.git
+cd mnehmos.multi-agent.framework</code></pre>
         </div>
       </div>
-      
+
       <!-- Step 2 -->
-      <div class="mb-12">
+      <div class="mb-16">
         <div class="flex items-center gap-4 mb-6">
-          <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center font-bold">2</div>
-          <h2 class="text-2xl font-bold">Choose Your IDE Template</h2>
+          <div class="w-10 h-10 bg-copper text-white rounded-full flex items-center justify-center font-display font-bold text-lg">2</div>
+          <h2 class="font-display text-2xl font-bold text-stone-900">Choose Your IDE</h2>
         </div>
-        
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div class="card">
-            <h3 class="font-bold mb-2">🔧 Roo Code (Recommended)</h3>
-            <p class="text-slate-400 text-sm mb-4">Full multi-mode support with all 13 agents.</p>
-            <div class="bg-slate-900/50 rounded-lg p-3 text-sm">
-              <code class="text-slate-300">Copy <span class="text-blue-400">templates/custom_modes.yaml</span></code>
-              <br/>
-              <code class="text-slate-300">to <span class="text-green-400">.roo/custom_modes.yaml</span></code>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">🦘</span>
+              <h3 class="font-display text-lg font-semibold text-stone-900">Roo Code</h3>
             </div>
+            <ol class="space-y-3 text-sm text-stone-600">
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">1.</span>
+                Copy <code class="bg-stone-100 px-1 rounded">templates/custom_modes.yaml</code> to <code class="bg-stone-100 px-1 rounded">.roo/</code>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">2.</span>
+                Add custom instructions from <code class="bg-stone-100 px-1 rounded">templates/custom-instructions-for-all-modes.md</code>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">3.</span>
+                Configure MCP servers in settings
+              </li>
+            </ol>
           </div>
           
-          <div class="card">
-            <h3 class="font-bold mb-2">✨ Claude Code</h3>
-            <p class="text-slate-400 text-sm mb-4">CLI-based agent with contract enforcement.</p>
-            <div class="bg-slate-900/50 rounded-lg p-3 text-sm">
-              <code class="text-slate-300">Copy <span class="text-blue-400">templates/claude-code/CLAUDE.md</span></code>
-              <br/>
-              <code class="text-slate-300">to your project root</code>
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">⚡</span>
+              <h3 class="font-display text-lg font-semibold text-stone-900">Claude Code</h3>
             </div>
+            <ol class="space-y-3 text-sm text-stone-600">
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">1.</span>
+                Copy <code class="bg-stone-100 px-1 rounded">templates/claude-code/CLAUDE.md</code> to project root
+              </li>
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">2.</span>
+                Add MCP servers to <code class="bg-stone-100 px-1 rounded">claude_desktop_config.json</code>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">3.</span>
+                Run <code class="bg-stone-100 px-1 rounded">claude</code> in your project directory
+              </li>
+            </ol>
           </div>
           
-          <div class="card">
-            <h3 class="font-bold mb-2">🎯 Cursor</h3>
-            <p class="text-slate-400 text-sm mb-4">AI-powered code editor with rules.</p>
-            <div class="bg-slate-900/50 rounded-lg p-3 text-sm">
-              <code class="text-slate-300">Copy <span class="text-blue-400">templates/cursor/rules/_global.mdc</span></code>
-              <br/>
-              <code class="text-slate-300">to <span class="text-green-400">.cursor/rules/</span></code>
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">🎯</span>
+              <h3 class="font-display text-lg font-semibold text-stone-900">Cursor</h3>
             </div>
+            <ol class="space-y-3 text-sm text-stone-600">
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">1.</span>
+                Copy <code class="bg-stone-100 px-1 rounded">templates/cursor/rules/_global.mdc</code> to <code class="bg-stone-100 px-1 rounded">.cursor/rules/</code>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">2.</span>
+                Configure agent instructions in Cursor settings
+              </li>
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">3.</span>
+                Use @agent mentions to switch modes
+              </li>
+            </ol>
           </div>
           
-          <div class="card">
-            <h3 class="font-bold mb-2">🤖 GitHub Copilot</h3>
-            <p class="text-slate-400 text-sm mb-4">Custom instructions for Copilot.</p>
-            <div class="bg-slate-900/50 rounded-lg p-3 text-sm">
-              <code class="text-slate-300">Copy <span class="text-blue-400">templates/copilot/copilot-instructions.md</span></code>
-              <br/>
-              <code class="text-slate-300">to <span class="text-green-400">.github/</span></code>
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">🤖</span>
+              <h3 class="font-display text-lg font-semibold text-stone-900">GitHub Copilot</h3>
             </div>
+            <ol class="space-y-3 text-sm text-stone-600">
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">1.</span>
+                Copy <code class="bg-stone-100 px-1 rounded">templates/copilot/copilot-instructions.md</code> to <code class="bg-stone-100 px-1 rounded">.github/</code>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">2.</span>
+                Reference instructions in Copilot Chat
+              </li>
+              <li class="flex gap-2">
+                <span class="text-copper font-semibold">3.</span>
+                Use slash commands to orchestrate work
+              </li>
+            </ol>
           </div>
         </div>
       </div>
-      
+
       <!-- Step 3 -->
-      <div class="mb-12">
+      <div class="mb-16">
         <div class="flex items-center gap-4 mb-6">
-          <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center font-bold">3</div>
-          <h2 class="text-2xl font-bold">Add Custom Instructions</h2>
+          <div class="w-10 h-10 bg-copper text-white rounded-full flex items-center justify-center font-display font-bold text-lg">3</div>
+          <h2 class="font-display text-2xl font-bold text-stone-900">Add MCP Tools (Optional)</h2>
         </div>
-        
-        <div class="card">
-          <p class="text-slate-300 mb-4">
-            Copy the global custom instructions to your IDE's settings. This ensures consistent behavior across all agent modes.
-          </p>
-          
-          <div class="bg-slate-900/50 rounded-lg p-4 text-sm mb-4">
-            <code class="text-slate-300">
-              <span class="text-slate-500"># For Roo Code:</span><br/>
-              Copy <span class="text-blue-400">templates/custom-instructions-for-all-modes.md</span><br/>
-              to Settings → Custom Instructions
-            </code>
-          </div>
-          
-          <a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework/blob/main/templates/custom-instructions-for-all-modes.md" target="_blank" class="text-blue-400 hover:text-blue-300 transition inline-flex items-center gap-2">
-            <span>View Custom Instructions</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-      
-      <!-- Step 4 (Optional) -->
-      <div class="mb-12">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center font-bold">4</div>
-          <h2 class="text-2xl font-bold">Add MCP Tools (Optional)</h2>
-        </div>
-        
-        <div class="card">
-          <p class="text-slate-300 mb-4">
-            Extend your agents with powerful MCP tools for computer control, persistent memory, and more.
-          </p>
-          
-          <div class="grid sm:grid-cols-2 gap-4 mb-6">
-            <div class="bg-slate-900/50 rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <span>🖥️</span>
-                <span class="font-semibold">OODA MCP</span>
-              </div>
-              <p class="text-slate-400 text-sm">Full computer control and automation</p>
-            </div>
-            <div class="bg-slate-900/50 rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <span>🧠</span>
-                <span class="font-semibold">Synch MCP</span>
-              </div>
-              <p class="text-slate-400 text-sm">Persistent memory across sessions</p>
-            </div>
-            <div class="bg-slate-900/50 rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <span>🔍</span>
-                <span class="font-semibold">Index Foundry</span>
-              </div>
-              <p class="text-slate-400 text-sm">RAG pipelines and vector search</p>
-            </div>
-            <div class="bg-slate-900/50 rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <span>📊</span>
-                <span class="font-semibold">Trace MCP</span>
-              </div>
-              <p class="text-slate-400 text-sm">Schema validation and tracing</p>
-            </div>
-          </div>
-          
-          <a href="/tools" class="text-blue-400 hover:text-blue-300 transition inline-flex items-center gap-2">
-            <span>Explore All MCP Tools</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-      
-      <!-- Step 5 -->
-      <div class="mb-12">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center font-bold">✓</div>
-          <h2 class="text-2xl font-bold">Start Building!</h2>
-        </div>
-        
-        <div class="card bg-gradient-to-br from-green-500/10 to-green-600/5 border-green-500/30">
-          <p class="text-slate-300 mb-4">
-            You're ready to go! Try these commands to get started:
-          </p>
-          
-          <div class="space-y-3">
-            <div class="bg-slate-900/50 rounded-lg p-3 flex items-center gap-4">
-              <code class="text-blue-400 font-mono">/plan</code>
-              <span class="text-slate-400">Create a structured task plan</span>
-            </div>
-            <div class="bg-slate-900/50 rounded-lg p-3 flex items-center gap-4">
-              <code class="text-blue-400 font-mono">/scope</code>
-              <span class="text-slate-400">Analyze and scope a feature</span>
-            </div>
-            <div class="bg-slate-900/50 rounded-lg p-3 flex items-center gap-4">
-              <code class="text-blue-400 font-mono">/build</code>
-              <span class="text-slate-400">Start implementing a feature</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Example Workflow -->
-  <section class="py-24 bg-slate-900/50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold mb-4">Example Workflow</h2>
-        <p class="text-slate-400 text-lg">
-          Here's how a typical multi-agent task flows through the system.
+        <p class="text-stone-600 mb-6">
+          Extend agent capabilities with Model Context Protocol servers. Clone and build the tools you need:
         </p>
-      </div>
-      
-      <div class="space-y-4">
-        <div class="card flex items-start gap-4">
-          <div class="agent-icon flex-shrink-0">
-            <span>👤</span>
-          </div>
-          <div>
-            <div class="text-sm text-slate-500 mb-1">You</div>
-            <p class="text-slate-300">"Build a user authentication system with login, logout, and session management."</p>
-          </div>
+        <div class="bg-stone-900 rounded-xl p-6 overflow-x-auto mb-6">
+          <pre class="text-stone-300 text-sm"><code># Clone MCP tools
+git clone https://github.com/Mnehmos/mnehmos.ooda.mcp.git
+git clone https://github.com/Mnehmos/mnehmos.synch.mcp.git
+git clone https://github.com/Mnehmos/mnehmos.index-foundry.mcp.git
+
+# Build each tool
+cd mnehmos.ooda.mcp && npm install && npm run build
+cd ../mnehmos.synch.mcp && npm install && npm run build
+cd ../mnehmos.index-foundry.mcp && npm install && npm run build</code></pre>
         </div>
-        
-        <div class="card flex items-start gap-4">
-          <div class="agent-icon flex-shrink-0">
-            <span>🔄</span>
-          </div>
-          <div>
-            <div class="text-sm text-slate-500 mb-1">Orchestrator</div>
-            <p class="text-slate-300">Decomposes into subtasks: design → tests → implementation → review. Delegates to Architect first.</p>
-          </div>
-        </div>
-        
-        <div class="card flex items-start gap-4">
-          <div class="agent-icon flex-shrink-0">
-            <span>🏛️</span>
-          </div>
-          <div>
-            <div class="text-sm text-slate-500 mb-1">Architect</div>
-            <p class="text-slate-300">Creates ADR for auth approach, defines API contracts, documents session strategy. Returns to Orchestrator.</p>
-          </div>
-        </div>
-        
-        <div class="card flex items-start gap-4">
-          <div class="agent-icon flex-shrink-0">
-            <span>🔴</span>
-          </div>
-          <div>
-            <div class="text-sm text-slate-500 mb-1">Red Phase</div>
-            <p class="text-slate-300">Writes failing tests for login, logout, and session validation. Verifies tests fail appropriately.</p>
-          </div>
-        </div>
-        
-        <div class="card flex items-start gap-4">
-          <div class="agent-icon flex-shrink-0">
-            <span>🟢</span>
-          </div>
-          <div>
-            <div class="text-sm text-slate-500 mb-1">Green Phase</div>
-            <p class="text-slate-300">Implements minimal code to make all tests pass. Focuses on correctness over elegance.</p>
-          </div>
-        </div>
-        
-        <div class="card flex items-start gap-4">
-          <div class="agent-icon flex-shrink-0">
-            <span>🔵</span>
-          </div>
-          <div>
-            <div class="text-sm text-slate-500 mb-1">Blue Phase</div>
-            <p class="text-slate-300">Refactors code while maintaining passing tests. Improves structure, adds error handling.</p>
-          </div>
-        </div>
-        
-        <div class="card flex items-start gap-4 bg-gradient-to-br from-green-500/10 to-green-600/5 border-green-500/30">
-          <div class="agent-icon flex-shrink-0">
-            <span>✅</span>
-          </div>
-          <div>
-            <div class="text-sm text-green-400 mb-1">Complete</div>
-            <p class="text-slate-300">All tasks verified, tests passing, documentation updated. Authentication system ready for production.</p>
-          </div>
+        <p class="text-stone-600 mb-4">
+          Add to your MCP configuration:
+        </p>
+        <div class="bg-stone-900 rounded-xl p-6 overflow-x-auto">
+          <pre class="text-stone-300 text-sm"><code>{`{
+  "mcpServers": {
+    "ooda": {
+      "command": "node",
+      "args": ["/path/to/mnehmos.ooda.mcp/dist/index.js"]
+    },
+    "synch": {
+      "command": "node",
+      "args": ["/path/to/mnehmos.synch.mcp/dist/index.js"]
+    },
+    "index-foundry": {
+      "command": "node",
+      "args": ["/path/to/mnehmos.index-foundry.mcp/dist/index.js"]
+    }
+  }
+}`}</code></pre>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- CTA -->
-  <section class="py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold mb-6">Need Help?</h2>
-      <p class="text-slate-400 text-lg mb-8">
-        Check out the full documentation or explore the GitHub repository.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/docs" class="btn-secondary">View Documentation</a>
-        <a href="https://github.com/Mnehmos/mnehmos.multi-agent.framework" target="_blank" class="btn-primary">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-          <span>GitHub Repository</span>
-        </a>
+
+      <!-- Step 4 -->
+      <div class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-10 h-10 bg-copper text-white rounded-full flex items-center justify-center font-display font-bold text-lg">4</div>
+          <h2 class="font-display text-2xl font-bold text-stone-900">Start Your First Task</h2>
+        </div>
+        <p class="text-stone-600 mb-6">
+          Use slash commands to orchestrate work with the multi-agent framework:
+        </p>
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <div class="flex items-center gap-4 mb-3">
+              <code class="text-copper font-semibold text-lg">/plan</code>
+              <span class="text-stone-600">Create a Task Map for your objective</span>
+            </div>
+            <div class="bg-stone-50 rounded-lg p-4 text-sm text-stone-600">
+              <strong>Example:</strong> "/plan Create a REST API for user authentication with JWT tokens"
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <div class="flex items-center gap-4 mb-3">
+              <code class="text-copper font-semibold text-lg">/scope</code>
+              <span class="text-stone-600">Deep-scope a complex issue before implementation</span>
+            </div>
+            <div class="bg-stone-50 rounded-lg p-4 text-sm text-stone-600">
+              <strong>Example:</strong> "/scope Investigate why database queries are slow under load"
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border border-stone-200 p-6">
+            <div class="flex items-center gap-4 mb-3">
+              <code class="text-copper font-semibold text-lg">/build</code>
+              <span class="text-stone-600">Implement features using TDD workflow</span>
+            </div>
+            <div class="bg-stone-50 rounded-lg p-4 text-sm text-stone-600">
+              <strong>Example:</strong> "/build Add email validation to the signup form"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TDD Workflow -->
+      <div class="bg-stone-50 rounded-2xl p-8 mb-16">
+        <h2 class="font-display text-2xl font-bold text-stone-900 mb-6">TDD Workflow</h2>
+        <p class="text-stone-600 mb-8">
+          The framework enforces Test-Driven Development with three distinct phases:
+        </p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl">🔴</div>
+            <h3 class="font-semibold text-stone-900 mb-2">Red Phase</h3>
+            <p class="text-sm text-stone-600">Write failing tests that define expected behavior. Tests must fail with clear messages.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl">🟢</div>
+            <h3 class="font-semibold text-stone-900 mb-2">Green Phase</h3>
+            <p class="text-sm text-stone-600">Write minimal code to make tests pass. Focus on correctness, not elegance.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 text-2xl">🔵</div>
+            <h3 class="font-semibold text-stone-900 mb-2">Blue Phase</h3>
+            <p class="text-sm text-stone-600">Refactor for quality while keeping tests green. Improve structure and performance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="text-center">
+        <h2 class="font-display text-2xl font-bold text-stone-900 mb-6">Next Steps</h2>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/mnehmos.multi-agent.framework/team" class="inline-flex items-center justify-center gap-2 bg-stone-900 text-stone-50 px-6 py-3 rounded-lg font-semibold hover:bg-stone-800 transition-colors">
+            Meet the Agents
+          </a>
+          <a href="/mnehmos.multi-agent.framework/tools" class="inline-flex items-center justify-center gap-2 border-2 border-stone-300 text-stone-700 px-6 py-3 rounded-lg font-semibold hover:border-stone-400 transition-colors">
+            Explore MCP Tools
+          </a>
+          <a href="/mnehmos.multi-agent.framework/docs" class="inline-flex items-center justify-center gap-2 border-2 border-stone-300 text-stone-700 px-6 py-3 rounded-lg font-semibold hover:border-stone-400 transition-colors">
+            Read the Docs
+          </a>
+        </div>
       </div>
     </div>
   </section>
